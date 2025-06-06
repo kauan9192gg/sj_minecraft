@@ -1,1 +1,9 @@
-
+{
+  "name": "Spotify",
+  "description": "Escute milhões de músicas e podcasts no seu dispositivo.",
+  "version": "1.0.0",
+  "exe_url": "https://raw.githubusercontent.com/kauan9192gg/app-store-repo/main/_Streaming/Spotify/spotify.exe",
+  "icon_url": "https://m.media-amazon.com/images/I/51rttY7a+9L.png",
+  "banner_url": "https://tm.ibxk.com.br/2015/07/21/21161520486055.jpg",
+  "official_page": "https://open.spotify.com/intl-pt/"
+}

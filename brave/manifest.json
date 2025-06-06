@@ -1,9 +1,0 @@
-{
-  "name": "Brave",
-  "description": "O navegador que coloca você em primeiro lugar",
-  "version": "1.0.0",
-  "exe_url": "https://raw.githubusercontent.com/kauan9192gg/app-store-repo/main/brave/brave.exe",
-  "icon_url": "https://brave.com/static-assets/images/brave-logo-sans-text.svg",
-  "banner_url": "https://t.ctcdn.com.br/ZMav_LlGEWWkWODyltxjLdKR8Kw=/1200x675/smart/i483054.jpeg",
-  "official_page": "https://brave.com/pt-br/"
-}

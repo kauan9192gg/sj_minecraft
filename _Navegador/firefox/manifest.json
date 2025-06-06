@@ -1,1 +1,9 @@
-
+{
+  "name": "FireFox",
+  "description": "Use o navegador que protege o que é importante",
+  "version": "1.0.0",
+  "exe_url": "https://raw.githubusercontent.com/kauan9192gg/app-store-repo/main/firefox/Firefox Installer.exe",
+  "icon_url": "https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg",
+  "banner_url": "https://www.mozilla.org/media/protocol/img/logos/firefox/browser/og.4ad05d4125a5.png",
+  "official_page": "https://www.mozilla.org/pt-BR/firefox/new/"
+}

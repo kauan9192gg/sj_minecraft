@@ -1,9 +1,9 @@
 {
-  "name": "Brave",
-  "description": "O navegador que coloca você em primeiro lugar",
+  "name": "Chrome",
+  "description": "O navegador criado para ser rapido, seguro, seu.",
   "version": "1.0.0",
   "exe_url": "https://raw.githubusercontent.com/kauan9192gg/app-store-repo/main/_navegador/chrome/chromesetup.exe",
-  "icon_url": "https://brave.com/static-assets/images/brave-logo-sans-text.svg",
-  "banner_url": "https://t.ctcdn.com.br/ZMav_LlGEWWkWODyltxjLdKR8Kw=/1200x675/smart/i483054.jpeg",
-  "official_page": "https://brave.com/pt-br/"
+  "icon_url": "https://www.google.com/chrome/static/images/chrome-logo-m100.svg",
+  "banner_url": "https://imgs.search.brave.com/PJUqPoknkO1LG-OzXJtfrHVnedcJDiH3ocWr3U0VUac/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/c2h1dHRlcnN0b2Nr/LmNvbS9pbWFnZS1w/aG90by9nZGFuc2st/cG9sYW5kLXNlcHRl/bWJlci0xMC0yMDE1/LTI2MG53LTMxNTE4/NDA3Ni5qcGc",
+  "official_page": "https://www.google.com/intl/pt-BR/chrome/"
 }

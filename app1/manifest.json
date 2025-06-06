@@ -1,7 +1,6 @@
 {
-  "name": "Meu App",
-  "description": "Esse é um app de exemplo",
+  "name": "App Exemplo Windows",
+  "description": "Um app para Windows com instalador.",
   "version": "1.0.0",
-  "apk_url": "https://raw.githubusercontent.com/seu-usuario/nome-do-repositorio/main/app1/meuapp.apk",
-  "icon_url": "https://raw.githubusercontent.com/seu-usuario/nome-do-repositorio/main/app1/icon.png"
+  "exe_url": "https://raw.githubusercontent.com/kauan9192gg/app-store-repo/main/app1/setup.exe"
 }

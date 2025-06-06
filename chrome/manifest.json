@@ -1,5 +1,5 @@
 {
-  "name": "App Exemplo Windows",
+  "name": "Chrome",
   "description": "Um app para Windows com instalador.",
   "version": "1.0.0",
   "exe_url": "https://raw.githubusercontent.com/kauan9192gg/app-store-repo/main/chrome/setup.exe"

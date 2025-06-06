@@ -1,1 +1,9 @@
-
+{
+  "name": "Chrome",
+  "description": "Navegador rápido, seguro e gratuito.",
+  "version": "1.0.0",
+  "exe_url": "https://raw.githubusercontent.com/kauan9192gg/app-store-repo/main/chrome/chromesetup.exe",
+  "icon_url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_icon_%282011%29.png",
+  "banner_url": "https://assets.turbologo.com/blog/pt/2022/02/07071527/google-chrome-new-logo-958x575.png",
+  "official_page": "https://www.google.com/chrome/"
+}

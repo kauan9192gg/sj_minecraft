@@ -1,1 +1,9 @@
-
+{
+  "name": "Discord",
+  "description": "Bate-papo em grupo repleto de diversão e jogos",
+  "version": "1.0.0",
+  "exe_url": "https://raw.githubusercontent.com/kauan9192gg/app-store-repo/main/_navegador/brave/brave.exe",
+  "icon_url": "https://www.notebookcheck.info/fileadmin/Notebooks/News/_nc3/discord.jpeg",
+  "banner_url": "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/67d00cf7266d2c75571aebde_Example.svg",
+  "official_page": "https://discord.com/"
+}

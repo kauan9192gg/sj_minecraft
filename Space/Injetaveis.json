@@ -1,20 +1,26 @@
 [
   {
-    "name": "NewPipe",
-    "version": "0.26.1",
-    "developer": "TeamNewPipe",
-    "description": "YouTube sem anúncios, com download e fundo",
-    "icon": "https://raw.githubusercontent.com/SEUUSUARIO/loja-apps/main/icons/newpipe.png",
-    "apk": "https://github.com/TeamNewPipe/NewPipe/releases/download/v0.26.1/NewPipe_v0.26.1.apk",
-    "package": "org.schabi.newpipe"
+    "name": "Space Injector",
+    "version": "1.8.5",
+    "description": "Injetor oficial do Space Client - Minecraft Java Edition",
+    "dll_url": "https://github.com/kauan9192gg/sj_minecraft/releases/download/v1.8.5/Space_Injector_v1.8.5.dll",
+    "icon_url": "https://raw.githubusercontent.com/kauan9192gg/sj_minecraft/main/Space/icon.png",
+    "update_date": "2025-11-10"
   },
   {
-    "name": "Revanced Manager",
-    "version": "1.0",
-    "developer": "ReVanced",
-    "description": "Gerenciador oficial do YouTube ReVanced",
-    "icon": "https://raw.githubusercontent.com/SEUUSUARIO/loja-apps/main/icons/revanced.png",
-    "apk": "https://github.com/ReVanced/revanced-manager/releases/download/v1.0.0/app-release.apk",
-    "package": "app.revanced.manager.flutter"
+    "name": "Space Ghost",
+    "version": "2.3.1",
+    "description": "Versão Ghost com Reach + Hitbox modificados (anti-cheat bypass)",
+    "dll_url": "https://github.com/kauan9192gg/sj_minecraft/releases/download/ghost/Space_Ghost_v2.3.1.dll",
+    "icon_url": "https://raw.githubusercontent.com/kauan9192gg/sj_minecraft/main/Space/ghost.png",
+    "update_date": "2025-11-05"
+  },
+  {
+    "name": "Space Vape Mode",
+    "version": "4.20",
+    "description": "Modo Vape integrado - KillAura, Fly, Scaffold (para servidores específicos)",
+    "dll_url": "https://github.com/kauan9192gg/sj_minecraft/releases/download/vape/Space_Vape_v4.20.dll",
+    "icon_url": "https://raw.githubusercontent.com/kauan9192gg/sj_minecraft/main/Space/vape.png",
+    "update_date": "2025-10-28"
   }
 ]

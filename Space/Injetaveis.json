@@ -1,1 +1,20 @@
-
+[
+  {
+    "name": "NewPipe",
+    "version": "0.26.1",
+    "developer": "TeamNewPipe",
+    "description": "YouTube sem anúncios, com download e fundo",
+    "icon": "https://raw.githubusercontent.com/SEUUSUARIO/loja-apps/main/icons/newpipe.png",
+    "apk": "https://github.com/TeamNewPipe/NewPipe/releases/download/v0.26.1/NewPipe_v0.26.1.apk",
+    "package": "org.schabi.newpipe"
+  },
+  {
+    "name": "Revanced Manager",
+    "version": "1.0",
+    "developer": "ReVanced",
+    "description": "Gerenciador oficial do YouTube ReVanced",
+    "icon": "https://raw.githubusercontent.com/SEUUSUARIO/loja-apps/main/icons/revanced.png",
+    "apk": "https://github.com/ReVanced/revanced-manager/releases/download/v1.0.0/app-release.apk",
+    "package": "app.revanced.manager.flutter"
+  }
+]

@@ -9,7 +9,97 @@
       "main_executable": "slinky.exe", 
       "install_folder": "slinky-client",
       "icon": "🚀"
+    },
+    {
+      "id": "sakura",
+      "name": "Sakura Client",
+      "category": "Injetaveis",
+      "download_url": "https://www.mediafire.com/file/gt7nnzzkjsf6ffv/sakura/file",
+      "filename": "sakura-client.zip",
+      "main_executable": "sakura.exe",
+      "install_folder": "sakura-client",
+      "icon": "🌸"
+    },
+    {
+      "id": "lunar-crack",
+      "name": "Lunar Account Crack",
+      "category": "Injetaveis",
+      "download_url": "https://www.mediafire.com/file/7s8tgd424imnvln/lunarC/file",
+      "filename": "lunar-crack.zip",
+      "main_executable": "lunar_crack.exe",
+      "install_folder": "lunar-crack",
+      "icon": "🌙"
+    },
+    {
+      "id": "filmex",
+      "name": "Filmex Player",
+      "category": "filmes",
+      "download_url": "https://www.mediafire.com/file/example1/filmex.zip",
+      "filename": "filmex-player.zip",
+      "main_executable": "Filmex.exe",
+      "install_folder": "filmex-player",
+      "icon": "🎬"
+    },
+    {
+      "id": "cinema-hd",
+      "name": "Cinema HD",
+      "category": "filmes",
+      "download_url": "https://www.mediafire.com/file/example2/cinema-hd.zip",
+      "filename": "cinema-hd.zip",
+      "main_executable": "CinemaHD.exe",
+      "install_folder": "cinema-hd",
+      "icon": "📺"
+    },
+    {
+      "id": "spotify-premium",
+      "name": "Spotify Premium",
+      "category": "musica",
+      "download_url": "https://www.mediafire.com/file/example3/spotify-premium.zip",
+      "filename": "spotify-premium.zip",
+      "main_executable": "Spotify.exe",
+      "install_folder": "spotify-premium",
+      "icon": "🎵"
+    },
+    {
+      "id": "youtube-music",
+      "name": "YouTube Music",
+      "category": "musica",
+      "download_url": "https://www.mediafire.com/file/example4/youtube-music.zip",
+      "filename": "youtube-music.zip",
+      "main_executable": "YTMusic.exe",
+      "install_folder": "youtube-music",
+      "icon": "🎧"
+    },
+    {
+      "id": "photoshop",
+      "name": "Photoshop Pro",
+      "category": "ferramentas",
+      "download_url": "https://www.mediafire.com/file/example5/photoshop.zip",
+      "filename": "photoshop-pro.zip",
+      "main_executable": "Photoshop.exe",
+      "install_folder": "photoshop-pro",
+      "icon": "🎨"
+    },
+    {
+      "id": "obs-studio",
+      "name": "OBS Studio",
+      "category": "ferramentas",
+      "download_url": "https://www.mediafire.com/file/example6/obs-studio.zip",
+      "filename": "obs-studio.zip",
+      "main_executable": "OBS.exe",
+      "install_folder": "obs-studio",
+      "icon": "🎥"
+    },
+    {
+      "id": "vlc-player",
+      "name": "VLC Media Player",
+      "category": "ferramentas",
+      "download_url": "https://www.mediafire.com/file/example7/vlc-player.zip",
+      "filename": "vlc-player.zip",
+      "main_executable": "vlc.exe",
+      "install_folder": "vlc-player",
+      "icon": "🔊"
     }
   ],
-  "categories": ["Injetaveis", "filmes", "musica"]
+  "categories": ["Injetaveis", "filmes", "musica", "ferramentas", "jogos", "produtividade"]
 }

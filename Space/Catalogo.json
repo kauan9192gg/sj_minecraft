@@ -1,4 +1,4 @@
-{
+e{
   "apps": [
     {
       "id": "slinky",
@@ -31,14 +31,14 @@
       "icon": "🛠️"
     },
     {
-      "id": "filmex",
-      "name": "Filmex Player",
-      "category": "filmes",
-      "download_url": "https://www.mediafire.com/file/example1/filmex.zip",
-      "filename": "filmex-player.zip",
-      "main_executable": "Filmex.exe",
-      "install_folder": "filmex-player",
-      "icon": "🎬"
+      "id": "elixe",
+      "name": "Elixe",
+      "category": "Version",
+      "download_url": "https://www.mediafire.com/file/xzm76k063eobmld/elixe/file",
+      "filename": "elixe-client.zip",
+      "main_executable": "elixe.exe",
+      "install_folder": "elixe-client",
+      "icon": "📦"
     },
     {
       "id": "cinema-hd",

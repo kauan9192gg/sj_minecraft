@@ -1,16 +1,15 @@
 {
   "apps": [
     {
-      "id": "Slinky",
-      "name": "Slinky", 
-      "type": "injetavel",
-      "category": "Injetavel",
+      "id": "slinky",
+      "name": "Slinky Client",
+      "category": "Injetaveis",
       "download_url": "https://www.mediafire.com/file/db18j817cojsn95/slinky/file",
-      "filename": "download.slinky.zip",
-      "install_folder": "slinky",
-      "main_executable": "Slinky.exe",
+      "filename": "slinky-client.zip",
+      "main_executable": "slinky.exe", 
+      "install_folder": "slinky-client",
       "icon": "🚀"
     }
   ],
-  "categories": ["Injetavel", "Versions", "Auto Cliker"]
+  "categories": ["Injetaveis", "filmes", "musica"]
 }

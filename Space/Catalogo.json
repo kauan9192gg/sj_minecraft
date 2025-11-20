@@ -13,11 +13,11 @@
     "name": "Sakura",
     "icon": "🌸",
     "version": "1.0",
-    "type": "injetavel",
+    "type": "version",
     "description": "Sakura version client",
     "download_url": "https://www.mediafire.com/file/gt7nnzzkjsf6ffv/sakura/file",
     "main_executable": "sakura.exe",
-    "injectable": true
+    "injectable": false
   },
   {
     "name": "Lunar Account Crack",
@@ -40,19 +40,19 @@
     "injectable": false
   },
   {
-    "name": "Elixee",
+    "name": "Elixe",
     "icon": "⚡",
-    "version": "3.8",
-    "type": "injetavel",
-    "description": "Hack client completo com kill aura, fly, xray, fullbright e muito mais – uma das versões mais usadas em 2025",
+    "version": "1.0",
+    "type": "version",
+    "description": "Hack client completo",
     "download_url": "https://www.mediafire.com/file/8j2k9p0m5x7v4r1/elixee_v3.8/file",
-    "main_executable": "elixee.exe",
-    "injectable": true
+    "main_executable": "elixe.exe",
+    "injectable": false
   },
   {
     "name": "Epic AutoClicker",
     "icon": "🖱️",
-    "version": "2.5",
+    "version": "1.0",
     "type": "aplicativo",
     "description": "Auto clicker otimizado para Minecraft (PvP/SkyWars/BedWars), com CPS regulável, jitter, butterfly click simulador e anti-detecção em vários servidores",
     "download_url": "https://www.mediafire.com/file/x4m9v2q8z6t1p3r/epic_autoclicker_v2.5/file",

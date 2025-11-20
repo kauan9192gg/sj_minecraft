@@ -48,5 +48,5 @@
     "download_url": "https://example.com/texture_manager.zip",
     "main_executable": "epic.exe",
     "injectable": false
-  }
+  },
 ]

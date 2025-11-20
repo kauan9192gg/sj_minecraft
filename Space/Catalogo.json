@@ -38,8 +38,7 @@
     "download_url": "https://example.com/texture_manager.zip",
     "main_executable": "elixe.exe",
     "injectable": false
-  }
-
+  },
   {
     "name": "Epic",
     "icon": "🧩",

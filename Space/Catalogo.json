@@ -1,1 +1,42 @@
-
+[
+  {
+    "name": "Slinky",
+    "icon": "🚀",
+    "version": "1.2",
+    "type": "injetavel",
+    "description": "Ghost client avançado",
+    "download_url": "https://www.mediafire.com/file/db18j817cojsn95/slinky/file",
+    "main_executable": "slinky.exe",
+    "injectable": true
+  },
+  {
+    "name": "Sakura",
+    "icon": "🌸", 
+    "version": "1.0",
+    "type": "injetavel",
+    "description": "Sakura version client",
+    "download_url": "https://www.mediafire.com/file/gt7nnzzkjsf6ffv/sakura/file",
+    "main_executable": "sakura.exe",
+    "injectable": true
+  },
+  {
+    "name": "Lunar Account Crack",
+    "icon": "🌙",
+    "version": "1.0", 
+    "type": "ferramenta",
+    "description": "Contas Lunar premium crackeadas",
+    "download_url": "https://www.mediafire.com/file/7s8tgd424imnvln/lunarC/file",
+    "main_executable": "lunar_crack.exe",
+    "injectable": false
+  },
+  {
+    "name": "Texture Pack Manager",
+    "icon": "🎨",
+    "version": "2.1",
+    "type": "aplicativo",
+    "description": "Gerenciador de texture packs para Minecraft",
+    "download_url": "https://example.com/texture_manager.zip",
+    "main_executable": "texture_manager.exe",
+    "injectable": false
+  }
+]

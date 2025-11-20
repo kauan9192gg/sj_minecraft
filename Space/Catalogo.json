@@ -1,62 +1,16 @@
-[
-  {
-    "name": "Slinky",
-    "icon": "🚀",
-    "version": "1.2",
-    "type": "injetavel",
-    "description": "Ghost client avançado",
-    "download_url": "https://www.mediafire.com/file/db18j817cojsn95/slinky/file",
-    "main_executable": "slinky.exe",
-    "injectable": true
-  },
-  {
-    "name": "Sakura",
-    "icon": "🌸",
-    "version": "1.0",
-    "type": "version",
-    "description": "Sakura version client",
-    "download_url": "https://www.mediafire.com/file/gt7nnzzkjsf6ffv/sakura/file",
-    "main_executable": "sakura.exe",
-    "injectable": false
-  },
-  {
-    "name": "Lunar Account Crack",
-    "icon": "🌙",
-    "version": "1.0",
-    "type": "ferramenta",
-    "description": "Contas Lunar premium crackeadas",
-    "download_url": "https://www.mediafire.com/file/7s8tgd424imnvln/lunarC/file",
-    "main_executable": "lunar_crack.exe",
-    "injectable": false
-  },
-  {
-    "name": "Texture Pack Manager",
-    "icon": "🎨",
-    "version": "2.1",
-    "type": "aplicativo",
-    "description": "Gerenciador de texture packs para Minecraft",
-    "download_url": "https://example.com/texture_manager.zip",
-    "main_executable": "texture_manager.exe",
-    "injectable": false
-  },
-  {
-    "name": "Elixe",
-    "icon": "⚡",
-    "version": "1.0",
-    "type": "version",
-    "description": "Hack client completo",
-    "download_url": "https://www.mediafire.com/file/8j2k9p0m5x7v4r1/elixee_v3.8/file",
-    "main_executable": "elixe.exe",
-    "injectable": false
-  },
-  {
-    "name": "Epic AutoClicker",
-    "icon": "🖱️",
-    "version": "1.0",
-    "type": "aplicativo",
-    "description": "Auto clicker otimizado para Minecraft (PvP/SkyWars/BedWars), com CPS regulável, jitter, butterfly click simulador e anti-detecção em vários servidores",
-    "download_url": "https://www.mediafire.com/file/x4m9v2q8z6t1p3r/epic_autoclicker_v2.5/file",
-    "main_executable": "epic_clicker.exe",
-    "injectable": false
-  }
-]
+{
+  "apps": [
+    {
+      "id": "app-unico",
+      "name": "Nome do App", 
+      "type": "injetavel",
+      "category": "jogos",
+      "download_url": "https://...",
+      "filename": "app-v1.0.zip",
+      "install_folder": "pasta-app",
+      "main_executable": "app.exe",
+      "icon": "🚀"
+    }
+  ],
+  "categories": ["jogos", "filmes", "musica"]
+}

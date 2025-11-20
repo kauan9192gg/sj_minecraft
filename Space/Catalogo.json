@@ -44,7 +44,7 @@
     "name": "Epic",
     "icon": "EP",
     "version": "1.0",
-    "type": "version",
+    "type": "Aplicativo",
     "description": "Auto Cliker focado em minecraft",
     "download_url": "https://example.com/texture_manager.zip",
     "main_executable": "epic.exe",

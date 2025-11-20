@@ -1,7 +1,7 @@
 [
   {
     "name": "Slinky",
-    "icon": "🚀",
+    "icon": "💉",
     "version": "1.2",
     "type": "injetavel",
     "description": "Ghost client avançado",
@@ -11,7 +11,7 @@
   },
   {
     "name": "Sakura",
-    "icon": "🌸", 
+    "icon": "📦", 
     "version": "1.0",
     "type": "version",
     "description": "Sakura version client",
@@ -21,7 +21,7 @@
   },
   {
     "name": "Lunar Account Crack",
-    "icon": "🌙",
+    "icon": "⚙️",
     "version": "1.0", 
     "type": "ferramenta",
     "description": "Contas Lunar premium crackeadas",
@@ -31,7 +31,7 @@
   },
   {
     "name": "Elixe",
-    "icon": "👾",
+    "icon": "📦",
     "version": "1.0",
     "type": "version",
     "description": "Client hack 1.8.9",
@@ -42,7 +42,7 @@
 
   {
     "name": "Epic",
-    "icon": "EP",
+    "icon": "🧩",
     "version": "1.0",
     "type": "Aplicativo",
     "description": "Auto Cliker focado em minecraft",

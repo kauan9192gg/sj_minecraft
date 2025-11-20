@@ -39,4 +39,15 @@
     "main_executable": "elixe.exe",
     "injectable": false
   }
+
+  {
+    "name": "Epic",
+    "icon": "EP",
+    "version": "1.0",
+    "type": "version",
+    "description": "Auto Cliker focado em minecraft",
+    "download_url": "https://example.com/texture_manager.zip",
+    "main_executable": "epic.exe",
+    "injectable": false
+  }
 ]

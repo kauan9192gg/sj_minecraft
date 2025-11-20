@@ -13,7 +13,7 @@
     "name": "Sakura",
     "icon": "🌸", 
     "version": "1.0",
-    "type": "injetavel",
+    "type": "version",
     "description": "Sakura version client",
     "download_url": "https://www.mediafire.com/file/gt7nnzzkjsf6ffv/sakura/file",
     "main_executable": "sakura.exe",
@@ -30,13 +30,13 @@
     "injectable": false
   },
   {
-    "name": "Texture Pack Manager",
-    "icon": "🎨",
-    "version": "2.1",
-    "type": "aplicativo",
-    "description": "Gerenciador de texture packs para Minecraft",
+    "name": "Elixe",
+    "icon": "Ex",
+    "version": "1.0",
+    "type": "version",
+    "description": "Client hack 1.8.9",
     "download_url": "https://example.com/texture_manager.zip",
-    "main_executable": "texture_manager.exe",
+    "main_executable": "elixe.exe",
     "injectable": false
   }
 ]

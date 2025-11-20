@@ -3,32 +3,32 @@
     {
       "id": "slinky",
       "name": "Slinky Client",
-      "category": "Injetaveis",
+      "category": "Injetavel",
       "download_url": "https://www.mediafire.com/file/db18j817cojsn95/slinky/file",
       "filename": "slinky-client.zip",
       "main_executable": "slinky.exe", 
       "install_folder": "slinky-client",
-      "icon": "🚀"
+      "icon": "💉"
     },
     {
       "id": "sakura",
       "name": "Sakura Client",
-      "category": "Injetaveis",
+      "category": "Version",
       "download_url": "https://www.mediafire.com/file/gt7nnzzkjsf6ffv/sakura/file",
       "filename": "sakura-client.zip",
       "main_executable": "sakura.exe",
       "install_folder": "sakura-client",
-      "icon": "🌸"
+      "icon": "📦"
     },
     {
       "id": "lunar-crack",
       "name": "Lunar Account Crack",
-      "category": "Injetaveis",
-      "download_url": "https://www.mediafire.com/file/7s8tgd424imnvln/lunarC/file",
+      "category": "Ferramenta",
+      "download_url": "https://www.mediafire.com/file/g25gjyvsj6anp2j/lunar_crack/file",
       "filename": "lunar-crack.zip",
       "main_executable": "lunar_crack.exe",
       "install_folder": "lunar-crack",
-      "icon": "🌙"
+      "icon": "🛠️"
     },
     {
       "id": "filmex",
@@ -101,5 +101,5 @@
       "icon": "🔊"
     }
   ],
-  "categories": ["Injetaveis", "filmes", "musica", "ferramentas", "jogos", "produtividade"]
+  "categories": ["Injetavel", "version", "ferramenta"]
 }

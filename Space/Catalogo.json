@@ -1,16 +1,16 @@
 {
   "apps": [
     {
-      "id": "app-unico",
-      "name": "Nome do App", 
+      "id": "Slinky",
+      "name": "Slinky", 
       "type": "injetavel",
-      "category": "jogos",
-      "download_url": "https://...",
-      "filename": "app-v1.0.zip",
-      "install_folder": "pasta-app",
-      "main_executable": "app.exe",
+      "category": "Injetaveis",
+      "download_url": "https://www.mediafire.com/file/db18j817cojsn95/slinky/file",
+      "filename": "download.slinky.zip",
+      "install_folder": "slinky",
+      "main_executable": "Slinky.exe",
       "icon": "🚀"
     }
   ],
-  "categories": ["jogos", "filmes", "musica"]
+  "categories": ["Injetavel", "Versions", "Auto Cliker"]
 }

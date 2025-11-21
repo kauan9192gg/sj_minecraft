@@ -39,66 +39,6 @@
       "main_executable": "elixe.exe",
       "install_folder": "elixe-client",
       "icon": "📦"
-    },
-    {
-      "id": "cinema-hd",
-      "name": "Cinema HD",
-      "category": "filmes",
-      "download_url": "https://www.mediafire.com/file/example2/cinema-hd.zip",
-      "filename": "cinema-hd.zip",
-      "main_executable": "CinemaHD.exe",
-      "install_folder": "cinema-hd",
-      "icon": "📺"
-    },
-    {
-      "id": "spotify-premium",
-      "name": "Spotify Premium",
-      "category": "musica",
-      "download_url": "https://www.mediafire.com/file/example3/spotify-premium.zip",
-      "filename": "spotify-premium.zip",
-      "main_executable": "Spotify.exe",
-      "install_folder": "spotify-premium",
-      "icon": "🎵"
-    },
-    {
-      "id": "youtube-music",
-      "name": "YouTube Music",
-      "category": "musica",
-      "download_url": "https://www.mediafire.com/file/example4/youtube-music.zip",
-      "filename": "youtube-music.zip",
-      "main_executable": "YTMusic.exe",
-      "install_folder": "youtube-music",
-      "icon": "🎧"
-    },
-    {
-      "id": "photoshop",
-      "name": "Photoshop Pro",
-      "category": "ferramentas",
-      "download_url": "https://www.mediafire.com/file/example5/photoshop.zip",
-      "filename": "photoshop-pro.zip",
-      "main_executable": "Photoshop.exe",
-      "install_folder": "photoshop-pro",
-      "icon": "🎨"
-    },
-    {
-      "id": "obs-studio",
-      "name": "OBS Studio",
-      "category": "ferramentas",
-      "download_url": "https://www.mediafire.com/file/example6/obs-studio.zip",
-      "filename": "obs-studio.zip",
-      "main_executable": "OBS.exe",
-      "install_folder": "obs-studio",
-      "icon": "🎥"
-    },
-    {
-      "id": "vlc-player",
-      "name": "VLC Media Player",
-      "category": "ferramentas",
-      "download_url": "https://www.mediafire.com/file/example7/vlc-player.zip",
-      "filename": "vlc-player.zip",
-      "main_executable": "vlc.exe",
-      "install_folder": "vlc-player",
-      "icon": "🔊"
     }
   ],
   "categories": ["Injetavel", "Version", "Ferramenta"]

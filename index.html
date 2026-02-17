@@ -17,7 +17,7 @@
             --text-dim: #a0a0a0;
         }
 
-        * { margin: 0; padding: 0; box-box: border-box; outline: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
         
         body {
             font-family: 'Poppins', sans-serif;
@@ -27,7 +27,6 @@
             overflow-x: hidden;
         }
 
-        /* Background Animado */
         .stars-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -35,7 +34,6 @@
             z-index: -1;
         }
 
-        /* Navbar */
         nav {
             display: flex;
             justify-content: space-between;
@@ -60,9 +58,8 @@
 
         .nav-links a:hover { color: var(--primary); }
 
-        /* Hero Section */
         .hero {
-            height: 90vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -88,49 +85,34 @@
 
         .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(123, 44, 191, 0.5); }
 
-        /* App Showcase */
-        .preview-container {
-            width: 80%;
-            max-width: 900px;
-            background: #000;
-            border: 4px solid var(--card-bg);
+        /* Estilo da Seção de Notícias */
+        .news-section {
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        .news-container {
+            background: var(--card-bg);
             border-radius: 15px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            margin: -50px auto 100px;
-            overflow: hidden;
+            padding: 30px;
+            border: 1px solid var(--secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
         }
 
-        .preview-container img { width: 100%; display: block; }
-
-        /* Seção Recursos */
-        .features {
-            padding: 100px 10%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+        .news-list {
+            list-style: none;
+            margin-top: 15px;
         }
 
-        .feature-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            transition: 0.3s;
-            border: 1px solid transparent;
+        .news-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #252525;
+            color: var(--text-dim);
         }
 
-        .feature-card:hover { border-color: var(--primary); transform: translateY(-10px); }
-        .feature-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
-        .feature-card h3 { margin-bottom: 15px; }
-
-        /* Changelog */
-        .changelog { padding: 100px 10%; background: #08080a; }
-        .version-box {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        .tag { background: var(--primary); padding: 2px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 10px; }
+        .news-item:last-child { border-bottom: none; }
 
         footer { padding: 50px; text-align: center; color: var(--text-dim); font-size: 0.9rem; }
 
@@ -147,58 +129,55 @@
     <nav>
         <div class="logo">SPACE<span>INJECTOR</span></div>
         <div class="nav-links">
-            <a href="#features">Recursos</a>
-            <a href="#changelog">Novidades</a>
+            <a href="#news">Notícias</a>
             <a href="#download">Download</a>
         </div>
     </nav>
 
     <section class="hero">
         <h1>Injete o Futuro.</h1>
-        <p>O launcher mais rápido e completo para seus clients favoritos. Totalmente gratuito, seguro e otimizado para Windows 11.</p>
+        <p>O launcher mais rápido e completo para seus clients favoritos.</p>
         <a href="#download" class="btn-main">BAIXAR AGORA v1.0.7</a>
     </section>
 
-    <section class="preview-container">
-        <img src="https://i.imgur.com/vH9YJ3p.png" alt="Preview App"> 
-    </section>
-
-    <section class="features" id="features">
-        <div class="feature-card">
-            <h3>🚀 Performance</h3>
-            <p>Injeção de threads otimizada para não causar lag ou queda de FPS durante suas partidas.</p>
-        </div>
-        <div class="feature-card">
-            <h3>📦 Catálogo Grátis</h3>
-            <p>Sakura, Lunar, Elixe e muito mais. Tudo pronto para instalar com um clique.</p>
-        </div>
-        <div class="feature-card">
-            <h3>🛡️ Seguro</h3>
-            <p>Sistema de contas criptografado e launcher verificado contra malwares.</p>
-        </div>
-    </section>
-
-    <section class="changelog" id="changelog">
-        <h2 style="margin-bottom: 40px; text-align: center;">Notas da Atualização</h2>
-        <div class="version-box">
-            <span class="tag">v1.0.7</span> <strong>Última Versão</strong>
-            <ul style="margin-top: 10px; padding-left: 20px; color: var(--text-dim);">
-                <li>Suporte oficial para Windows 11.</li>
-                <li>Integração com Discord RPC (Mostre o que está jogando).</li>
-                <li>Novo sistema de criação de contas.</li>
-                <li>Correção crítica de threads.</li>
+    <section class="news-section" id="news">
+        <h2 style="margin-bottom: 20px;">📢 Últimas Notícias</h2>
+        <div class="news-container">
+            <ul class="news-list" id="lista-noticias">
+                <p>Carregando notícias...</p>
             </ul>
-        </div>
-        <div class="version-box" style="opacity: 0.6;">
-            <span class="tag" style="background: #444;">v1.0.6</span>
-            <span>Melhoria na interface de download e correção de bugs.</span>
         </div>
     </section>
 
     <footer id="download">
         <p>Space Injector © 2026</p>
-        <p style="margin-top: 10px;">Desenvolvido por administradores via Discord.</p>
     </footer>
 
+    <script>
+        // Script para buscar as notícias do JSON
+        async function carregarNoticias() {
+            try {
+                // Ele busca o arquivo Noticia.json que está na mesma pasta
+                const response = await fetch('Space/Noticia.json'); 
+                const noticias = await response.json();
+                
+                const lista = document.getElementById('lista-noticias');
+                lista.innerHTML = ''; // Limpa o "carregando"
+
+                noticias.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'news-item';
+                    li.textContent = item;
+                    lista.appendChild(li);
+                });
+            } catch (error) {
+                console.error('Erro ao carregar notícias:', error);
+                document.getElementById('lista-noticias').innerHTML = '<p>Erro ao carregar notícias.</p>';
+            }
+        }
+
+        // Executa a função assim que a página abre
+        carregarNoticias();
+    </script>
 </body>
 </html>

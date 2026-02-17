@@ -3,161 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPACE INJECTOR | Official</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Space Injector | Launcher Grátis</title>
     <style>
         :root {
-            --primary: #00d2ff;
-            --secondary: #3a7bd5;
-            --bg: #050505;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
+            --bg-dark: #121217;
+            --card-bg: #1c1c24;
+            --primary-purple: #7b2cbf;
+            --accent-blue: #0095ff;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
 
         body {
-            background-color: var(--bg);
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* Fundo Animado */
-        .bg-glow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% -20%, #1e3a5f 0%, transparent 50%);
-            z-index: -1;
-        }
-
-        nav {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            margin: 0;
+            padding: 0;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding: 20px 10%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            position: sticky; top: 0; z-index: 100;
         }
 
-        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 2px; color: var(--primary); }
-        .nav-links a { color: #aaa; text-decoration: none; margin-left: 25px; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
-
-        .hero {
+        /* Header / Hero Section */
+        header {
+            width: 100%;
+            padding: 60px 20px;
             text-align: center;
-            padding: 120px 20px;
-            max-width: 900px;
-            margin: 0 auto;
+            background: linear-gradient(180deg, #1e1e2e 0%, var(--bg-dark) 100%);
         }
 
-        .status-container {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(0, 255, 136, 0.05);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            padding: 8px 16px;
-            border-radius: 50px;
-            margin-bottom: 30px;
+        .logo-img {
+            width: 120px;
+            margin-bottom: 20px;
         }
 
-        .dot { height: 8px; width: 8px; background: #00ff88; border-radius: 50%; margin-right: 10px; box-shadow: 0 0 10px #00ff88; }
-        .status-text { color: #00ff88; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
-
-        h1 { font-size: 4rem; background: linear-gradient(to right, #fff, #777); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
-        .hero p { color: #888; font-size: 1.2rem; margin-bottom: 40px; }
+        h1 { font-size: 3rem; margin: 0; }
+        .version-tag { color: var(--text-gray); font-size: 0.9rem; }
 
         .btn-download {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background-color: var(--primary-purple);
             color: white;
-            padding: 18px 45px;
-            text-decoration: none;
+            padding: 15px 40px;
             border-radius: 8px;
+            text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-top: 25px;
+            transition: transform 0.2s;
         }
 
-        .btn-download:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4); }
+        .btn-download:hover { transform: scale(1.05); background-color: #9d4edd; }
 
-        .features {
+        /* Conteúdo Principal */
+        .container {
+            max-width: 1000px;
+            width: 90%;
+            margin: 40px 0;
+        }
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 50px 10%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 40px;
-            border-radius: 20px;
-            transition: 0.4s;
-            backdrop-filter: blur(5px);
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-purple);
         }
 
-        .card:hover { background: rgba(255,255,255,0.05); border-color: var(--primary); transform: scale(1.02); }
-        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
-        .card h3 { margin-bottom: 15px; font-size: 1.4rem; }
-        .card p { color: #777; font-size: 0.95rem; }
+        .card h3 { margin-top: 0; color: var(--accent-blue); }
 
-        footer {
+        /* Estilo da Lista de News */
+        .news-item {
+            border-bottom: 1px solid #2d2d3a;
+            padding: 10px 0;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--text-gray);
+            font-size: 0.8rem;
             text-align: center;
-            padding: 60px;
-            border-top: 1px solid var(--border);
-            color: #444;
-            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
+    <header>
+        <img src="https://i.imgur.com/8nN2n7L.png" alt="Space Injector Logo" class="logo-img"> <h1>Space Injector</h1>
+        <p>O launcher de clients e ferramentas 100% gratuito e otimizado.</p>
+        <span class="version-tag">Versão Atual: v1.0.7</span> <br>
+        <a href="#" class="btn-download">BAIXAR AGORA 🚀</a>
+    </header>
 
-    <nav>
-        <div class="logo">SPACE<span style="color:#fff">INJECTOR</span></div>
-        <div class="nav-links">
-            <a href="#home">Início</a>
-            <a href="#features">Tecnologia</a>
-            <a href="https://discord.gg/SEU_CONVITE" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <h3>📦 Catálogo Completo</h3>
+                <p>Acesso instantâneo a ferramentas como <b>Sakura Client</b>, <b>Lunar Account Crack</b> e <b>Elixe</b>. Instalação com apenas um clique.</p>
+            </div>
+
+            <div class="card">
+                <h3>💉 Slinky Injector</h3>
+                <p>Sistema de injeção automática compatível com versões 1.7.10 até 1.8.9. Detecção inteligente de processo (javaw.exe).</p>
+            </div>
+
+            <div class="card">
+                <h3>👤 Sistema de Contas</h3>
+                <p>Crie sua conta, gerencie seu perfil e mantenha sua biblioteca sincronizada entre dispositivos.</p>
+            </div>
         </div>
-    </nav>
 
-    <section class="hero" id="home">
-        <div class="status-container">
-            <div class="dot"></div>
-            <span class="status-text">Sistema Online & Undetected</span>
-        </div>
-        <h1>A evolução da injeção.</h1>
-        <p>Desenvolvido para máxima discrição e performance. O Space Injector utiliza algoritmos de kernel-level para garantir que você esteja sempre um passo à frente.</p>
-        <br><br>
-        <a href="SEU_LINK_COM_ANUNCIO" class="btn-download">OBTER ACESSO AGORA</a>
-    </section>
-
-    <section class="features" id="features">
+        <h2 style="margin-top: 60px;">📢 Últimas Atualizações</h2>
         <div class="card">
-            <i class="fas fa-microchip"></i>
-            <h3>Kernel Injeção</h3>
-            <p>Injeção limpa que não deixa rastros na memória do sistema ou registros do jogo.</p>
+            <div class="news-item">
+                <strong>v1.0.7</strong> - Suporte ao Windows 11, Discord RPC e Correção de Threads. <small>(14/02/2026)</small>
+            </div>
+            <div class="news-item">
+                <strong>v1.0.6</strong> - Novo sistema de login e melhorias na interface de download.
+            </div>
         </div>
-        <div class="card">
-            <i class="fas fa-bolt"></i>
-            <h3>Ultra Leve</h3>
-            <p>Arquitetura otimizada para consumir menos de 20MB de RAM. Zero impacto no FPS.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-shield-alt"></i>
-            <h3>HWID Lock</h3>
-            <p>Seus dados são protegidos e vinculados ao seu hardware via criptografia AES-256.</p>
-        </div>
-    </section>
+    </div>
 
-    <footer>
-        &copy; 2026 Space Injector Project. <br>
-        <small>Não somos afiliados à Mojang ou Microsoft. Use com responsabilidade.</small>
-    </footer>
+    <div class="footer">
+        &copy; 2026 Space Injector - Desenvolvido por Admnistrador via Discord.
+    </div>
 
 </body>
 </html>

@@ -81,6 +81,9 @@
             font-size: 1.1rem;
             box-shadow: 0 10px 20px rgba(123, 44, 191, 0.3);
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
         }
 
         .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(123, 44, 191, 0.5); }
@@ -130,14 +133,14 @@
         <div class="logo">SPACE<span>INJECTOR</span></div>
         <div class="nav-links">
             <a href="#news">Notícias</a>
-            <a href="#download">Download</a>
+            <a href="https://cdn.discordapp.com/attachments/1443394571877744704/1473157442081783861/Space_Setup.exe?ex=69953048&is=6993dec8&hm=5f78d5b1f20e36e5c0c9e6434bcf8ac0a8ab27a4f75a3abab23efe62f2192c01&">Download</a>
         </div>
     </nav>
 
     <section class="hero">
         <h1>Injete o Futuro.</h1>
         <p>O launcher mais rápido e completo para seus clients favoritos.</p>
-        <a href="#download" class="btn-main">BAIXAR AGORA</a>
+        <a href="https://cdn.discordapp.com/attachments/1443394571877744704/1473157442081783861/Space_Setup.exe?ex=69953048&is=6993dec8&hm=5f78d5b1f20e36e5c0c9e6434bcf8ac0a8ab27a4f75a3abab23efe62f2192c01&" class="btn-main" download>BAIXAR AGORA</a>
     </section>
 
     <section class="news-section" id="news">
@@ -149,20 +152,18 @@
         </div>
     </section>
 
-    <footer id="download">
+    <footer>
         <p>Space Injector © 2026</p>
     </footer>
 
     <script>
-        // Script para buscar as notícias do JSON
         async function carregarNoticias() {
             try {
-                // Ele busca o arquivo Noticia.json que está na mesma pasta
                 const response = await fetch('Space/Noticia.json'); 
                 const noticias = await response.json();
                 
                 const lista = document.getElementById('lista-noticias');
-                lista.innerHTML = ''; // Limpa o "carregando"
+                lista.innerHTML = '';
 
                 noticias.forEach(item => {
                     const li = document.createElement('li');
@@ -175,8 +176,6 @@
                 document.getElementById('lista-noticias').innerHTML = '<p>Erro ao carregar notícias.</p>';
             }
         }
-
-        // Executa a função assim que a página abre
         carregarNoticias();
     </script>
 </body>

@@ -1,68 +1,36 @@
-# 🚀 Space Injector - Launcher Oficial
-
-![Versão](https://img.shields.io/badge/version-1.0.7-blueviolet?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Gratuito-green?style=for-the-badge)
-![OS](https://img.shields.io/badge/Windows-11%20Suportado-0078d4?style=for-the-badge&logo=windows)
-
-O **Space Injector** é um launcher de alta performance, totalmente gratuito, desenvolvido para facilitar a gestão e injeção de clients e ferramentas. Com uma interface moderna e foco em UX, ele centraliza tudo o que você precisa em um só lugar.
-
----
-
-## 📸 Screenshots
+# 🚀 Space Injector | v1.0.7
 
 <div align="center">
-  <img src="https://i.imgur.com/vH9YJ3p.png" width="400" alt="Interface Principal">
-  <img src="https://i.imgur.com/8nN2n7L.png" width="400" alt="Catálogo">
+  <img src="https://i.imgur.com/8nN2n7L.png" width="150" alt="Space Injector Logo">
+  <br>
+  <p><b>O launcher definitivo e gratuito para seus clients e ferramentas.</b></p>
 </div>
 
 ---
 
+## 📖 Descrição
+O **Space Injector** é um launcher completo projetado para gerenciar e injetar ferramentas com facilidade. Ele oferece uma interface moderna, sistema de downloads integrado e um catálogo atualizado de clients.
+
 ## ✨ Funcionalidades Principais
+* **💉 Injetor Integrado (Slinky):** Detecção automática do processo `javaw.exe` com suporte para as versões 1.7.10, 1.8, 1.8.8 e 1.8.9.
+* **📦 Catálogo de Aplicativos:** Instale facilmente clients como **Sakura**, **Elixe** e ferramentas como **Lunar Account Crack**.
+* **🔄 Sistema de Update Obrigatório:** Garante que você sempre utilize a versão mais estável e segura (v1.0.7).
+* **👤 Perfil Personalizado:** Sistema de login e registro para gerenciar sua biblioteca e tempo de membro.
+* **🖥️ Suporte Windows 11:** Otimizado para rodar perfeitamente na versão mais recente do sistema.
 
-* **📦 Catálogo Dinâmico:** Instale Sakura Client, Lunar Crack, Elixe e outros com apenas um clique.
-* **💉 Slinky Injector:** Sistema de injeção automática compatível com versões 1.7.10, 1.8, 1.8.8 e 1.8.9.
-* **🎮 Discord RPC:** Mostre o que você está jogando e sua atividade diretamente no seu perfil do Discord.
-* **🛡️ Sistema de Contas:** Criação de conta nativa para salvar suas preferências e biblioteca.
-* **⚡ Otimização de Threads:** Correções constantes para garantir que o launcher não consuma recursos desnecessários.
+## 🛠️ Notas da Versão 1.0.7
+* Adicionado sistema de criação de contas.
+* Integração com **Discord RPC**.
+* Correção de threads e melhoria geral de interface.
+* Suporte oficial para Windows 11.
 
----
-
-## 🛠️ O que há de novo (v1.0.7)
-
-* **Suporte Windows 11:** Totalmente compatível com a versão mais recente do Windows.
-* **Interface Refatorada:** Melhoria visual em todos os menus.
-* **Fixes de Threads:** Injeção mais estável e rápida.
-* **Criação de Contas:** Novo módulo de registro implementado.
-
----
-
-## 🚀 Como Executar
-
-1.  Baixe a versão mais recente na aba **Releases**.
-2.  Execute o `Space Injector.exe`.
-3.  Faça login ou crie uma conta gratuita.
-4.  Escolha seu client no **Catálogo** e clique em **Instalar**.
-5.  Acesse sua **Biblioteca** e clique em **Abrir**.
-
----
-
-## 💻 Requisitos
-
-| Requisito | Especificação |
-| :--- | :--- |
-| **Sistema Operacional** | Windows 10 ou 11 (64-bit) |
-| **Dependências** | Java (para clients compatíveis) |
-| **Conexão** | Necessária para downloads e login |
-
----
-
-## 🤝 Créditos & Suporte
-
-Este projeto é distribuído gratuitamente. 
-* **Desenvolvimento:** Admnistrador via Discord.
-* **Comunidade:** Junte-se ao nosso servidor para atualizações em tempo real.
+## 🚀 Como Usar
+1. Realize o download do launcher através da aba **Releases**.
+2. Faça o login ou crie uma nova conta.
+3. Explore o **Catálogo** e instale as ferramentas desejadas.
+4. Acesse sua **Biblioteca** e clique em **Abrir** para iniciar o injetor.
 
 ---
 <div align="center">
-  <p>Space Injector © 2026 - O espaço onde a performance e a simplicidade se encontram.</p>
+  <sub>Desenvolvido por Admnistrador via Discord • 2026</sub>
 </div>

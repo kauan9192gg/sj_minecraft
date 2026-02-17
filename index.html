@@ -3,137 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Injector | Launcher Grátis</title>
+    <title>Space Injector | Official Launcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         :root {
-            --bg-dark: #121217;
-            --card-bg: #1c1c24;
-            --primary-purple: #7b2cbf;
-            --accent-blue: #0095ff;
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
+            --primary: #7b2cbf;
+            --secondary: #3c096c;
+            --accent: #0095ff;
+            --bg: #0b0b0e;
+            --card-bg: #16161e;
+            --text: #ffffff;
+            --text-dim: #a0a0a0;
         }
 
+        * { margin: 0; padding: 0; box-box: border-box; outline: none; }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            margin: 0;
-            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Animado */
+        .stars-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0b0b0e 100%);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(11, 11, 14, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0; z-index: 1000;
+        }
+
+        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: 1px; color: var(--text); }
+        .logo span { color: var(--primary); }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-        }
-
-        /* Header / Hero Section */
-        header {
-            width: 100%;
-            padding: 60px 20px;
             text-align: center;
-            background: linear-gradient(180deg, #1e1e2e 0%, var(--bg-dark) 100%);
+            padding: 0 20px;
         }
 
-        .logo-img {
-            width: 120px;
-            margin-bottom: 20px;
-        }
+        .hero h1 { font-size: 4rem; margin-bottom: 10px; text-transform: uppercase; }
+        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; margin-bottom: 30px; }
 
-        h1 { font-size: 3rem; margin: 0; }
-        .version-tag { color: var(--text-gray); font-size: 0.9rem; }
-
-        .btn-download {
-            background-color: var(--primary-purple);
+        .btn-main {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: white;
-            padding: 15px 40px;
-            border-radius: 8px;
+            padding: 18px 45px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            display: inline-block;
-            margin-top: 25px;
-            transition: transform 0.2s;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(123, 44, 191, 0.3);
+            transition: 0.3s;
         }
 
-        .btn-download:hover { transform: scale(1.05); background-color: #9d4edd; }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(123, 44, 191, 0.5); }
 
-        /* Conteúdo Principal */
-        .container {
-            max-width: 1000px;
-            width: 90%;
-            margin: 40px 0;
+        /* App Showcase */
+        .preview-container {
+            width: 80%;
+            max-width: 900px;
+            background: #000;
+            border: 4px solid var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            margin: -50px auto 100px;
+            overflow: hidden;
         }
 
-        .grid {
+        .preview-container img { width: 100%; display: block; }
+
+        /* Seção Recursos */
+        .features {
+            padding: 100px 10%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
 
-        .card {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-purple);
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            transition: 0.3s;
+            border: 1px solid transparent;
         }
 
-        .card h3 { margin-top: 0; color: var(--accent-blue); }
+        .feature-card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .feature-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .feature-card h3 { margin-bottom: 15px; }
 
-        /* Estilo da Lista de News */
-        .news-item {
-            border-bottom: 1px solid #2d2d3a;
-            padding: 10px 0;
-        }
-
-        .footer {
-            margin-top: 50px;
+        /* Changelog */
+        .changelog { padding: 100px 10%; background: #08080a; }
+        .version-box {
+            background: var(--card-bg);
             padding: 20px;
-            color: var(--text-gray);
-            font-size: 0.8rem;
-            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .tag { background: var(--primary); padding: 2px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 10px; }
+
+        footer { padding: 50px; text-align: center; color: var(--text-dim); font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="https://i.imgur.com/8nN2n7L.png" alt="Space Injector Logo" class="logo-img"> <h1>Space Injector</h1>
-        <p>O launcher de clients e ferramentas 100% gratuito e otimizado.</p>
-        <span class="version-tag">Versão Atual: v1.0.7</span> <br>
-        <a href="#" class="btn-download">BAIXAR AGORA 🚀</a>
-    </header>
+    <div class="stars-bg"></div>
 
-    <div class="container">
-        <div class="grid">
-            <div class="card">
-                <h3>📦 Catálogo Completo</h3>
-                <p>Acesso instantâneo a ferramentas como <b>Sakura Client</b>, <b>Lunar Account Crack</b> e <b>Elixe</b>. Instalação com apenas um clique.</p>
-            </div>
-
-            <div class="card">
-                <h3>💉 Slinky Injector</h3>
-                <p>Sistema de injeção automática compatível com versões 1.7.10 até 1.8.9. Detecção inteligente de processo (javaw.exe).</p>
-            </div>
-
-            <div class="card">
-                <h3>👤 Sistema de Contas</h3>
-                <p>Crie sua conta, gerencie seu perfil e mantenha sua biblioteca sincronizada entre dispositivos.</p>
-            </div>
+    <nav>
+        <div class="logo">SPACE<span>INJECTOR</span></div>
+        <div class="nav-links">
+            <a href="#features">Recursos</a>
+            <a href="#changelog">Novidades</a>
+            <a href="#download">Download</a>
         </div>
+    </nav>
 
-        <h2 style="margin-top: 60px;">📢 Últimas Atualizações</h2>
-        <div class="card">
-            <div class="news-item">
-                <strong>v1.0.7</strong> - Suporte ao Windows 11, Discord RPC e Correção de Threads. <small>(14/02/2026)</small>
-            </div>
-            <div class="news-item">
-                <strong>v1.0.6</strong> - Novo sistema de login e melhorias na interface de download.
-            </div>
+    <section class="hero">
+        <h1>Injete o Futuro.</h1>
+        <p>O launcher mais rápido e completo para seus clients favoritos. Totalmente gratuito, seguro e otimizado para Windows 11.</p>
+        <a href="#download" class="btn-main">BAIXAR AGORA v1.0.7</a>
+    </section>
+
+    <section class="preview-container">
+        <img src="https://i.imgur.com/vH9YJ3p.png" alt="Preview App"> 
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature-card">
+            <h3>🚀 Performance</h3>
+            <p>Injeção de threads otimizada para não causar lag ou queda de FPS durante suas partidas.</p>
         </div>
-    </div>
+        <div class="feature-card">
+            <h3>📦 Catálogo Grátis</h3>
+            <p>Sakura, Lunar, Elixe e muito mais. Tudo pronto para instalar com um clique.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🛡️ Seguro</h3>
+            <p>Sistema de contas criptografado e launcher verificado contra malwares.</p>
+        </div>
+    </section>
 
-    <div class="footer">
-        &copy; 2026 Space Injector - Desenvolvido por Admnistrador via Discord.
-    </div>
+    <section class="changelog" id="changelog">
+        <h2 style="margin-bottom: 40px; text-align: center;">Notas da Atualização</h2>
+        <div class="version-box">
+            <span class="tag">v1.0.7</span> <strong>Última Versão</strong>
+            <ul style="margin-top: 10px; padding-left: 20px; color: var(--text-dim);">
+                <li>Suporte oficial para Windows 11.</li>
+                <li>Integração com Discord RPC (Mostre o que está jogando).</li>
+                <li>Novo sistema de criação de contas.</li>
+                <li>Correção crítica de threads.</li>
+            </ul>
+        </div>
+        <div class="version-box" style="opacity: 0.6;">
+            <span class="tag" style="background: #444;">v1.0.6</span>
+            <span>Melhoria na interface de download e correção de bugs.</span>
+        </div>
+    </section>
+
+    <footer id="download">
+        <p>Space Injector © 2026</p>
+        <p style="margin-top: 10px;">Desenvolvido por administradores via Discord.</p>
+    </footer>
 
 </body>
 </html>

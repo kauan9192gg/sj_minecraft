@@ -17,5 +17,5 @@ O **Space Injector** é um launcher completo projetado para gerenciar e injetar 
 
 ---
 <div align="center">
-  <sub>Desenvolvido por Admnistrador via Discord • 2026</sub>
+  <sub>Da like 👍</sub>
 </div>

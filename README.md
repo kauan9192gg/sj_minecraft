@@ -1,4 +1,4 @@
-# 🚀 Space Injector | v1.0.7
+# 🚀 Space Injector
 
 <div align="center">
   <p><b>O launcher definitivo e gratuito para seus clients e ferramentas.</b></p>

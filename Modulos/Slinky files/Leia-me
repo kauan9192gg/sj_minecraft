@@ -1,0 +1,10 @@
+Atenção: essas DLLs foram obtidas através do repositório do usuário https://github.com/nikyy2
+
+Os arquivos podem ser injetados com qualquer injetor.
+
+Fiz o que pude para tentar analisar os dois arquivos, inclusive engenharia reversa. No entanto, não foi possível realizar uma análise completa da library, pois ela utiliza VMProtect.
+
+Mesmo assim, testei essas DLLs por bastante tempo e nada de anormal aconteceu. Elas não aparentam executar nenhuma ação suspeita após a injeção.
+
+Essas foram as DLLs mais limpas e confiáveis que encontrei, especialmente porque os desenvolvedores originais apagaram o projeto ou desistiram dele.
+Esse usuário lista os donos e os desenvolvedores, o que é um diferencial importante, já que geralmente é muito difícil saber quem realmente criou esse tipo de arquivo.

@@ -6,13 +6,12 @@
   <title>Space Launcher</title>
   <style>
     :root {
-      --bg: #070a12;
-      --card: rgba(17, 24, 39, 0.55);
-      --accent: #38bdf8;
-      --accent-2: #22d3ee;
+      --bg: #0b0f14;
+      --card: #111826;
+      --accent: #5eead4;
       --text: #e5e7eb;
       --muted: #9ca3af;
-      --border: rgba(255,255,255,0.08);
+      --danger: #f87171;
     }
 
     * {
@@ -30,46 +29,23 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(94,234,212,0.08), rgba(34,211,238,0.05), transparent);
-      animation: glow 8s ease-in-out infinite alternate;
-      z-index: -1;
-    }
-
-    @keyframes glow {
-      from { opacity: 0.4; }
-      to { opacity: 0.8; }
     }
 
     .container {
-      max-width: 960px;
+      max-width: 900px;
       width: 100%;
-      background: linear-gradient(180deg, rgba(2,6,23,0.9), rgba(2,6,23,0.75));
-      backdrop-filter: blur(18px);
-      border-radius: 24px;
-      padding: 48px;
-      border: 1px solid var(--border);
-      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.75);
+      background: linear-gradient(180deg, #0b1220, var(--card));
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     }
 
     header {
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      margin-bottom: 40px;
+      gap: 16px;
+      margin-bottom: 32px;
     }
-
-    header h1 {
-      font-size: 3.4rem;
-      font-weight: 900;
-      letter-spacing: -1.5px;
-      background:
 
     h1 {
       font-size: 3rem;
@@ -173,11 +149,10 @@
 <body>
   <main class="container">
     <header>
-      <span style="color:var(--accent); font-weight:700; letter-spacing:1px;">SPACE PROJECT</span>
       <h1>🚀 Space Launcher</h1>
       <p class="subtitle">
-        Um launcher modular inspirado na Steam, focado em leveza, segurança e estabilidade.
-        Projetado para rodar em segundo plano sem impactar o desempenho do jogo.
+        Launcher modular focado em leveza, segurança e estabilidade.
+        Desenvolvido para rodar em segundo plano sem impactar o desempenho do jogo.
       </p>
 
       <div class="actions">
@@ -187,18 +162,8 @@
         <a href="https://github.com/SEU_USUARIO/SEU_REPOSITORIO" class="btn btn-secondary">
           📦 GitHub
         </a>
-        <a href="#discord" class="btn btn-secondary">
-          💬 Discord
-        </a>
       </div>
     </header>
-
-    <section style="margin-top:24px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-      <div class="card"><h3>⚡ Ultra leve</h3><p>Consumo quase zero em idle.</p></div>
-      <div class="card"><h3>🛡️ Seguro</h3><p>Validação ativa e execução supervisionada.</p></div>
-      <div class="card"><h3>🧩 Modular</h3><p>Atualize módulos sem atualizar o core.</p></div>
-      <div class="card"><h3>🚀 Em uso real</h3><p>Testado por meses em gameplay.</p></div>
-    </section>
 
     <section>
       <div class="card">

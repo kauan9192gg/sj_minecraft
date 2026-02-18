@@ -29,6 +29,21 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(94,234,212,0.08), rgba(34,211,238,0.05), transparent);
+      animation: glow 8s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes glow {
+      from { opacity: 0.4; }
+      to { opacity: 0.8; }
     }
 
     .container {
@@ -168,6 +183,13 @@
         </a>
       </div>
     </header>
+
+    <section style="margin-top:24px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+      <div class="card"><h3>⚡ Ultra leve</h3><p>Consumo quase zero em idle.</p></div>
+      <div class="card"><h3>🛡️ Seguro</h3><p>Validação ativa e execução supervisionada.</p></div>
+      <div class="card"><h3>🧩 Modular</h3><p>Atualize módulos sem atualizar o core.</p></div>
+      <div class="card"><h3>🚀 Em uso real</h3><p>Testado por meses em gameplay.</p></div>
+    </section>
 
     <section>
       <div class="card">

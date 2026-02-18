@@ -1,182 +1,210 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Injector | Official Launcher</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --primary: #7b2cbf;
-            --secondary: #3c096c;
-            --accent: #0095ff;
-            --bg: #0b0b0e;
-            --card-bg: #16161e;
-            --text: #ffffff;
-            --text-dim: #a0a0a0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Launcher</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #111826;
+      --accent: #5eead4;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --danger: #f87171;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-        .stars-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #1a1a2e 0%, #0b0b0e 100%);
-            z-index: -1;
-        }
+    body {
+      background: radial-gradient(circle at top, #0f172a, var(--bg));
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            background: rgba(11, 11, 14, 0.8);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0; z-index: 1000;
-        }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: linear-gradient(180deg, #0b1220, var(--card));
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
 
-        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: 1px; color: var(--text); }
-        .logo span { color: var(--primary); }
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
 
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
 
-        .nav-links a:hover { color: var(--primary); }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
 
-        .hero {
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+    }
 
-        .hero h1 { font-size: 4rem; margin-bottom: 10px; text-transform: uppercase; }
-        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; margin-bottom: 30px; }
+    .btn {
+      padding: 14px 22px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .btn-main {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 18px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 20px rgba(123, 44, 191, 0.3);
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-        }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #22d3ee);
+      color: #020617;
+      box-shadow: 0 10px 30px rgba(94, 234, 212, 0.35);
+    }
 
-        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(123, 44, 191, 0.5); }
+    .btn-secondary {
+      background: #020617;
+      color: var(--text);
+      border: 1px solid #1f2933;
+    }
 
-        /* Estilo da Seção de Notícias */
-        .news-section {
-            padding: 50px 10%;
-            text-align: center;
-        }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+      opacity: 0.95;
+    }
 
-        .news-container {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            border: 1px solid var(--secondary);
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-        }
+    section {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
 
-        .news-list {
-            list-style: none;
-            margin-top: 15px;
-        }
+    .card {
+      background: rgba(2, 6, 23, 0.8);
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      padding: 24px;
+    }
 
-        .news-item {
-            padding: 10px 0;
-            border-bottom: 1px solid #252525;
-            color: var(--text-dim);
-        }
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
 
-        .news-item:last-child { border-bottom: none; }
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
 
-        footer { padding: 50px; text-align: center; color: var(--text-dim); font-size: 0.9rem; }
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #1f2937;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-        }
-    </style>
+    .warning {
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <main class="container">
+    <header>
+      <h1>🚀 Space Launcher</h1>
+      <p class="subtitle">
+        Launcher modular focado em leveza, segurança e estabilidade.
+        Desenvolvido para rodar em segundo plano sem impactar o desempenho do jogo.
+      </p>
 
-    <div class="stars-bg"></div>
+      <div class="actions">
+        <a href="https://github.com/SEU_USUARIO/SEU_REPOSITORIO/releases" class="btn btn-primary">
+          ⬇️ Download
+        </a>
+        <a href="https://github.com/SEU_USUARIO/SEU_REPOSITORIO" class="btn btn-secondary">
+          📦 GitHub
+        </a>
+      </div>
+    </header>
 
-    <nav>
-        <div class="logo">SPACE<span>INJECTOR</span></div>
-        <div class="nav-links">
-            <a href="#news">Notícias</a>
-            <a href="https://cdn.discordapp.com/attachments/1443394571877744704/1473157442081783861/Space_Setup.exe?ex=69953048&is=6993dec8&hm=5f78d5b1f20e36e5c0c9e6434bcf8ac0a8ab27a4f75a3abab23efe62f2192c01&">Download</a>
-        </div>
-    </nav>
+    <section>
+      <div class="card">
+        <h3>⚡ Leve</h3>
+        <p>
+          Core extremamente otimizado, consumo mínimo de CPU e RAM.
+          Ideal para PCs fracos e uso durante gameplay.
+        </p>
+      </div>
 
-    <section class="hero">
-        <h1>Injete o Futuro.</h1>
-        <p>O launcher mais rápido e completo para seus clients favoritos.</p>
-        <a href="https://cdn.discordapp.com/attachments/1443394571877744704/1473157442081783861/Space_Setup.exe?ex=69953048&is=6993dec8&hm=5f78d5b1f20e36e5c0c9e6434bcf8ac0a8ab27a4f75a3abab23efe62f2192c01&" class="btn-main" download>BAIXAR AGORA</a>
-    </section>
+      <div class="card">
+        <h3>🧩 Modular</h3>
+        <p>
+          Core separado de módulos. Atualizações rápidas sem reinstalar tudo.
+          Cada módulo é supervisionado pelo app principal.
+        </p>
+      </div>
 
-    <section class="news-section" id="news">
-        <h2 style="margin-bottom: 20px;">📢 Últimas Notícias</h2>
-        <div class="news-container">
-            <ul class="news-list" id="lista-noticias">
-                <p>Carregando notícias...</p>
-            </ul>
-        </div>
+      <div class="card">
+        <h3>🔒 Seguro</h3>
+        <p>
+          Proteção contra executáveis modificados e módulos não confiáveis.
+          Tudo que roda é validado em tempo de execução.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🧠 Transparente</h3>
+        <p>
+          Hacks e DLLs disponíveis para estudo e discussão.
+          O foco é evitar que usuários baixem arquivos maliciosos da internet.
+        </p>
+      </div>
     </section>
 
     <footer>
-        <p>Space Injector © 2026</p>
-    </footer>
-
-    <script>
-        async function carregarNoticias() {
-            try {
-                const response = await fetch('Space/Noticia.json'); 
-                const noticias = await response.json();
-                
-                const lista = document.getElementById('lista-noticias');
-                lista.innerHTML = '';
-
-                noticias.forEach(item => {
-                    const li = document.createElement('li');
-                    li.className = 'news-item';
-                    li.textContent = item;
-                    lista.appendChild(li);
-                });
-            } catch (error) {
-                console.error('Erro ao carregar notícias:', error);
-                document.getElementById('lista-noticias').innerHTML = '<p>Erro ao carregar notícias.</p>';
-            }
-        }
-        carregarNoticias();
-    </script>
-</body>
-</html>
+      <p class="warning">⚠️ Aviso</p>
+      <p>
+        Este projeto é destinado a <strong>uso educacional e experimental</strong>.
+        O autor não se responsabiliza por qualquer uso indevido do conteúdo.
+        O uso é opcional e de inteira responsabilidade do usuário.
+      </p>
+      <p>
+        © 2026 Space Launcher — usa quem quer

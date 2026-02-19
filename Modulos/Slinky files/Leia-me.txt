@@ -1,10 +1,75 @@
-Atenção: essas DLLs foram obtidas através do repositório do usuário https://github.com/nikyy2
+Análise das DLLs Slinky
+Aviso Importante
 
-Os arquivos podem ser injetados com qualquer injetor.
+As DLLs mencionadas neste repositório foram obtidas a partir do repositório do usuário:
+https://github.com/nikyy2
 
-Fiz o que pude para tentar analisar os dois arquivos, inclusive engenharia reversa. No entanto, não foi possível realizar uma análise completa da library, pois ela utiliza VMProtect.
+Este README tem finalidade informativa e técnica, baseado em testes e análises realizadas. Não há incentivo ao uso indevido dos arquivos aqui descritos.
 
-Mesmo assim, testei essas DLLs por bastante tempo e nada de anormal aconteceu. Elas não aparentam executar nenhuma ação suspeita após a injeção.
+Visão Geral
 
-Essas foram as DLLs mais limpas e confiáveis que encontrei, especialmente porque os desenvolvedores originais apagaram o projeto ou desistiram dele.
-Esse usuário lista os donos e os desenvolvedores, o que é um diferencial importante, já que geralmente é muito difícil saber quem realmente criou esse tipo de arquivo.
+Este projeto envolve duas DLLs principais:
+
+slinky_library.dll – responsável pela lógica principal do client e pelo processo de autenticação.
+
+slinky_hook.dll – responsável por interceptar e emular partes críticas da comunicação/autenticação.
+
+Ambas funcionam de forma dependente, sendo o hook essencial para o funcionamento completo da library fora do ambiente oficial.
+
+Funcionamento (Resumo Técnico)
+
+Após análises mais recentes, foi possível compreender melhor a arquitetura geral:
+
+A slinky_library.dll é carregada primeiro.
+
+Ela aguarda a autenticação com o servidor oficial.
+
+O papel do slinky_hook.dll é emular essa autenticação, enganando a library e fazendo-a acreditar que a validação foi concluída com sucesso.
+
+Esse comportamento explica por que o client mantém sua “originalidade” mesmo fora do ambiente oficial.
+
+Em resumo:
+
+A library depende do hook para funcionar corretamente.
+
+O hook atua como intermediário, simulando respostas esperadas do servidor.
+
+A comunicação entre library e hook é essencial para atualizações e funcionamento contínuo.
+
+Criptografia e Proteção
+
+A slinky_library.dll utiliza VMProtect, o que impede uma engenharia reversa completa.
+
+Mesmo com o conteúdo fortemente criptografado, o hook é o único ponto viável de observação, pois precisa lidar com dados em tempo de execução.
+
+Foi justamente essa comunicação que acabou sendo quebrada/observada, tornando possível entender parte do fluxo interno.
+
+Análise e Segurança
+
+Foram realizados testes prolongados com ambas as DLLs.
+
+Nenhum comportamento anormal ou ação suspeita foi observado após a injeção.
+
+As DLLs não aparentam executar payloads ocultos, backdoors ou ações maliciosas adicionais.
+
+Dentro do que foi possível analisar, estas foram as DLLs mais limpas e confiáveis encontradas.
+
+Origem e Credibilidade
+
+Os desenvolvedores originais aparentemente apagaram o projeto ou o abandonaram.
+
+O repositório citado lista nomes dos donos e desenvolvedores, o que é um diferencial importante nesse tipo de projeto.
+
+Em geral, é extremamente difícil rastrear a autoria real de arquivos desse tipo, tornando essa transparência um ponto positivo.
+
+Limitações da Análise
+
+A análise da library não pôde ser concluída totalmente devido às proteções aplicadas.
+
+As conclusões aqui descritas são baseadas em:
+
+Testes práticos
+
+Observação de comportamento
+
+Análise parcial em tempo de execução

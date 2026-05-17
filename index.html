@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Space Launcher</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root {
-      --bg: #0b0f14;
-      --card: #111826;
-      --accent: #5eead4;
-      --text: #e5e7eb;
+      --bg: #030712;
+      --card: rgba(17, 24, 39, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #22d3ee;
+      --accent-glow: rgba(34, 211, 238, 0.25);
+      --text: #f3f4f6;
       --muted: #9ca3af;
       --danger: #f87171;
     }
@@ -18,217 +21,330 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     body {
-      background: radial-gradient(circle at top, #0f172a, var(--bg));
+      background: radial-gradient(circle at 50% -20%, #0e1e38, var(--bg));
       color: var(--text);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 40px 20px;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       width: 100%;
-      background: linear-gradient(180deg, #0b1220, var(--card));
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.5), rgba(3, 7, 18, 0.5));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 48px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     }
 
     header {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-bottom: 32px;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 800;
-      letter-spacing: -1px;
+      letter-spacing: -1.5px;
+      background: linear-gradient(to right, #ffffff, #9ca3af);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-container i {
+      color: var(--accent);
+      filter: drop-shadow(0 0 8px var(--accent));
     }
 
     .subtitle {
       color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 700px;
+      font-size: 1.15rem;
+      max-width: 600px;
+      line-height: 1.6;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      margin-top: 24px;
+      margin-top: 12px;
     }
 
     .btn {
-      padding: 14px 22px;
+      padding: 14px 28px;
       border-radius: 12px;
-      border: none;
+      border: 1px solid transparent;
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      gap: 8px;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #22d3ee);
-      color: #020617;
-      box-shadow: 0 10px 30px rgba(94, 234, 212, 0.35);
+      background: #ffffff;
+      color: #030712;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      box-shadow: 0 0 24px var(--accent-glow);
+      transform: translateY(-2px);
     }
 
     .btn-secondary {
-      background: #020617;
+      background: rgba(255, 255, 255, 0.03);
       color: var(--text);
-      border: 1px solid #1f2933;
+      border-color: var(--border);
     }
 
-    .btn:hover {
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
-      opacity: 0.95;
     }
 
-    section {
-      margin-top: 40px;
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
+      gap: 20px;
+      margin-bottom: 48px;
     }
 
     .card {
-      background: rgba(2, 6, 23, 0.8);
-      border: 1px solid #1f2937;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 24px;
+      padding: 28px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(34, 211, 238, 0.3);
+      background: rgba(17, 24, 39, 0.9);
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: inline-block;
     }
 
     .card h3 {
-      margin-bottom: 12px;
-      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #ffffff;
     }
 
     .card p {
       color: var(--muted);
       font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .community-section {
+      border-top: 1px solid var(--border);
+      padding-top: 48px;
+      margin-bottom: 48px;
+    }
+
+    .community-card {
+      background: linear-gradient(135deg, rgba(88, 101, 242, 0.05), rgba(17, 24, 39, 0.5));
+      border: 1px solid rgba(88, 101, 242, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .community-info {
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .community-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .community-info p {
+      color: var(--muted);
       line-height: 1.5;
     }
 
+    .discord-widget {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
     footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid #1f2937;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      font-size: 0.9rem;
+      gap: 16px;
+      font-size: 0.875rem;
       color: var(--muted);
+      line-height: 1.6;
     }
 
-    .warning {
+    .warning-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(248, 113, 113, 0.05);
+      border-left: 3px solid var(--danger);
+      padding: 16px;
+      border-radius: 4px 12px 12px 4px;
+    }
+
+    .warning-title {
       color: var(--danger);
-      font-weight: 600;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
+    .copyright {
+      margin-top: 8px;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 16px; }
+      .container { padding: 24px; }
+      h1 { font-size: 2.5rem; }
+      .community-card { padding: 24px; }
     }
   </style>
 </head>
 <body>
   <main class="container">
     <header>
-      <h1>🚀 Space Launcher</h1>
+      <div class="logo-container">
+        <i data-lucide="rocket" size="40"></i>
+        <h1>Space Launcher</h1>
+      </div>
       <p class="subtitle">
         Launcher modular focado em leveza, segurança e estabilidade.
-        Desenvolvido para rodar em segundo plano sem impactar o desempenho do jogo.
+        Desenvolvido para rodar em segundo plano sem impactar o desempenho do seu jogo.
       </p>
 
       <div class="actions">
         <a href="https://github.com/kauan9192gg/sj_minecraft/releases/tag/Space" class="btn btn-primary">
-          ⬇️ Download
+          <i data-lucide="download" size="18"></i> Download
         </a>
         <a href="https://github.com/kauan9192gg/sj_minecraft" class="btn btn-secondary">
-          📦 GitHub
+          <i data-lucide="github" size="18"></i> GitHub
         </a>
       </div>
     </header>
 
-    <section>
+    <section class="features-grid">
       <div class="card">
-        <h3>⚡ Leve</h3>
-        <p>
-          Core extremamente otimizado, consumo mínimo de CPU e RAM.
-          Ideal para PCs fracos e uso durante gameplay.
-        </p>
+        <div class="card-icon"><i data-lucide="zap" size="24"></i></div>
+        <h3>Leve</h3>
+        <p>Core extremamente otimizado, consumo mínimo de CPU e RAM. Ideal para PCs fracos e uso estável durante a gameplay.</p>
       </div>
 
       <div class="card">
-        <h3>🧩 Modular</h3>
-        <p>
-          Core separado de módulos. Atualizações rápidas sem reinstalar tudo.
-          Cada módulo é supervisionado pelo app principal.
-        </p>
+        <div class="card-icon"><i data-lucide="blocks" size="24"></i></div>
+        <h3>Modular</h3>
+        <p>Core separado de módulos. Atualizações rápidas sem reinstalar tudo. Cada módulo é supervisionado pelo app principal.</p>
       </div>
 
       <div class="card">
-        <h3>🔒 Seguro</h3>
-        <p>
-          Proteção contra executáveis modificados e módulos não confiáveis.
-          Tudo que roda é validado em tempo de execução.
-        </p>
+        <div class="card-icon"><i data-lucide="shield-check" size="24"></i></div>
+        <h3>Seguro</h3>
+        <p>Proteção contra executáveis modificados e módulos não confiáveis. Tudo que roda é validado em tempo de execução.</p>
       </div>
 
       <div class="card">
-        <h3>🧠 Transparente</h3>
-        <p>
-          Hacks e DLLs disponíveis para estudo e discussão.
-          O foco é evitar que usuários baixem arquivos maliciosos da internet.
-        </p>
+        <div class="card-icon"><i data-lucide="eye" size="24"></i></div>
+        <h3>Transparente</h3>
+        <p>Hacks e DLLs disponíveis para estudo e discussão. O foco é evitar que usuários baixem arquivos maliciosos na internet.</p>
       </div>
     </section>
 
-    <section style="margin-top:48px; grid-template-columns: 1fr;">
-      <div class="card" style="display:flex; flex-direction:column; align-items:center; gap:16px;">
-        <h3>💬 Comunidade no Discord</h3>
-        <p style="text-align:center; max-width:600px;">
-          Entre no Discord oficial para suporte, avisos de atualização,
-          discussão sobre módulos e feedback da comunidade.
-        </p>
+    <section class="community-section">
+      <div class="community-card">
+        <div class="community-info">
+          <h3><i data-lucide="messages-square" style="color:#5865F2"></i> Comunidade no Discord</h3>
+          <p>Entre no Discord oficial para suporte, avisos de atualização, discussão sobre novos módulos e feedback geral.</p>
+        </div>
 
-        <iframe
-          src="https://discord.com/widget?id=1443394571005591604&theme=dark"
-          width="350"
-          height="500"
-          allowtransparency="true"
-          frameborder="0"
-          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-        </iframe>
+        <div class="discord-widget">
+          <iframe
+            src="https://discord.com/widget?id=1443394571005591604&theme=dark"
+            width="100%"
+            height="400"
+            allowtransparency="true"
+            frameborder="0"
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+          </iframe>
+        </div>
       </div>
     </section>
 
     <footer>
-      <p class="warning">⚠️ Aviso</p>
-      <p>
-        Este projeto é destinado a <strong>uso educacional e experimental</strong>.
-        O autor não se responsabiliza por qualquer uso indevido do conteúdo.
-        O uso é opcional e de inteira responsabilidade do usuário.
-      </p>
-      <p>
-        © 2026 Space Launcher — usa quem quer.
+      <div class="warning-wrapper">
+        <div>
+          <span class="warning-title"><i data-lucide="alert-triangle" size="16"></i> Aviso Importante</span>
+          <p>
+            Este projeto é destinado estritamente a <strong>uso educacional e experimental</strong>.
+            O autor não se responsabiliza por qualquer uso indevido do conteúdo disponibilizado.
+            O uso é opcional e de inteira responsabilidade do usuário final.
+          </p>
+        </div>
+      </div>
+      <p class="copyright">
+        © 2026 Space Launcher — uso sob total responsabilidade do usuário.
       </p>
     </footer>
   </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>

@@ -4,45 +4,45 @@
       "id": "slinky",
       "name": "Slinky Client",
       "category": "Injetavel",
-      "description": "Cliente otimizado para Minecraft com diversas funcionalidades exclusivas",
+      "description": "Cliente otimizado para Minecraft com diversas funcionalidades exclusivas, suporte a mods e performance melhorada.",
       "download_url": "https://www.mediafire.com/file/9uf4mg6nf5a5evc/slinky/file",
       "filename": "slinky-client.zip",
       "install_folder": "slinky-client",
       "main_executable": "slinky.exe",
-      "icon": "https://cdn.nekotina.com/images/RIZGspOI.jpeg"
+      "icon": "https://cdn.discordapp.com/icons/123456789012345678/a_1b2c3d4e5f67890a1b2c3d4e5f67890a.webp?size=128"
     },
     {
       "id": "sakura",
       "name": "Sakura Client",
       "category": "Version",
-      "description": "Cliente leve e rápido para Minecraft",
+      "description": "Cliente leve e rápido para Minecraft, ideal para PvP e minimizando lag. Compatível com versões 1.8 a 1.20.",
       "download_url": "https://www.mediafire.com/file/gt7nnzzkjsf6ffv/sakura/file",
       "filename": "sakura-client.zip",
       "install_folder": "sakura-client",
       "main_executable": "sakura.exe",
-      "icon": "https://i.imgur.com/sakura_icon.png"
+      "icon": "https://raw.githubusercontent.com/kauan9192gg/sj_minecraft/main/icons/sakura.png"
     },
     {
       "id": "lunar-crack",
       "name": "Lunar Account Crack",
       "category": "Ferramenta",
-      "description": "Ferramenta para contas do Lunar Client",
+      "description": "Ferramenta para gerar e validar contas premium do Lunar Client. Suporte a proxies e gerador de alt accounts.",
       "download_url": "https://www.mediafire.com/file/g25gjyvsj6anp2j/lunar_crack/file",
       "filename": "lunar-crack.zip",
       "install_folder": "lunar-crack",
       "main_executable": "lunar_crack.exe",
-      "icon": "https://i.imgur.com/lunar_icon.png"
+      "icon": "https://raw.githubusercontent.com/kauan9192gg/sj_minecraft/main/icons/lunar.png"
     },
     {
       "id": "elixe",
-      "name": "Elixe",
+      "name": "Elixe Client",
       "category": "Version",
-      "description": "Cliente alternativo para Minecraft",
+      "description": "Cliente alternativo para Minecraft com foco em customização e estabilidade. Inclui suporte a shaders e otimizações.",
       "download_url": "https://www.mediafire.com/file/xzm76k063eobmld/elixe/file",
       "filename": "elixe-client.zip",
       "install_folder": "elixe-client",
       "main_executable": "elixe.exe",
-      "icon": "https://i.imgur.com/elixe_icon.png"
+      "icon": "https://raw.githubusercontent.com/kauan9192gg/sj_minecraft/main/icons/elixe.png"
     }
   ],
   "categories": ["Injetavel", "Version", "Ferramenta"]

@@ -4,41 +4,45 @@
       "id": "slinky",
       "name": "Slinky Client",
       "category": "Injetavel",
+      "description": "Cliente otimizado para Minecraft com diversas funcionalidades exclusivas",
       "download_url": "https://www.mediafire.com/file/9uf4mg6nf5a5evc/slinky/file",
       "filename": "slinky-client.zip",
-      "main_executable": "slinky.exe", 
       "install_folder": "slinky-client",
-      "icon": "💉"
+      "main_executable": "slinky.exe",
+      "icon": "https://i.imgur.com/slinky_icon.png"
     },
     {
       "id": "sakura",
       "name": "Sakura Client",
       "category": "Version",
+      "description": "Cliente leve e rápido para Minecraft",
       "download_url": "https://www.mediafire.com/file/gt7nnzzkjsf6ffv/sakura/file",
       "filename": "sakura-client.zip",
-      "main_executable": "sakura.exe",
       "install_folder": "sakura-client",
-      "icon": "📦"
+      "main_executable": "sakura.exe",
+      "icon": "https://i.imgur.com/sakura_icon.png"
     },
     {
       "id": "lunar-crack",
       "name": "Lunar Account Crack",
       "category": "Ferramenta",
+      "description": "Ferramenta para contas do Lunar Client",
       "download_url": "https://www.mediafire.com/file/g25gjyvsj6anp2j/lunar_crack/file",
       "filename": "lunar-crack.zip",
-      "main_executable": "lunar_crack.exe",
       "install_folder": "lunar-crack",
-      "icon": "🛠️"
+      "main_executable": "lunar_crack.exe",
+      "icon": "https://i.imgur.com/lunar_icon.png"
     },
     {
       "id": "elixe",
       "name": "Elixe",
       "category": "Version",
+      "description": "Cliente alternativo para Minecraft",
       "download_url": "https://www.mediafire.com/file/xzm76k063eobmld/elixe/file",
       "filename": "elixe-client.zip",
-      "main_executable": "elixe.exe",
       "install_folder": "elixe-client",
-      "icon": "📦"
+      "main_executable": "elixe.exe",
+      "icon": "https://i.imgur.com/elixe_icon.png"
     }
   ],
   "categories": ["Injetavel", "Version", "Ferramenta"]

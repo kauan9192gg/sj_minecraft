@@ -23,33 +23,33 @@
       "filename": "sakura-client.zip",
       "install_folder": "sakura-client",
       "main_executable": "sakura.exe",
-      "icon": "URL_DO_ICONE",
+      "icon": "https://i.postimg.cc/W1P0WhwK/sk.jpg",
       "changelog": "• Nova interface\n• Otimizações de memória"
     },
     {
       "id": "lunar-crack",
       "name": "Lunar Account Crack",
-      "version": "1.0.5",
+      "version": "1.0",
       "category": "Ferramenta",
       "description": "Ferramenta para gerar e validar contas premium",
       "download_url": "https://www.mediafire.com/file/g25gjyvsj6anp2j/lunar_crack/file",
       "filename": "lunar-crack.zip",
       "install_folder": "lunar-crack",
       "main_executable": "lunar_crack.exe",
-      "icon": "URL_DO_ICONE",
+      "icon": "https://i.postimg.cc/XJX5GF4z/lc.jpg",
       "changelog": "• Suporte a novos proxies\n• Correção de bugs"
     },
     {
       "id": "elixe",
       "name": "Elixe Client",
-      "version": "1.1.2",
+      "version": "1.0",
       "category": "Version",
       "description": "Cliente alternativo para Minecraft",
       "download_url": "https://www.mediafire.com/file/xzm76k063eobmld/elixe/file",
       "filename": "elixe-client.zip",
       "install_folder": "elixe-client",
       "main_executable": "elixe.exe",
-      "icon": "URL_DO_ICONE",
+      "icon": "https://i.postimg.cc/pT7FDTd0/EX.jpg",
       "changelog": "• Adicionado suporte a mods\n• Interface redesenhada"
     }
   ],

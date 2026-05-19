@@ -11,7 +11,7 @@
       "install_folder": "slinky-client",
       "main_executable": "slinky.exe",
       "icon": "https://i.postimg.cc/d0T80r6s/sk.jpg",
-      "changelog": "•Melhorias de performance\n• Correção de bugs"
+      "changelog": "• Melhorias de performance\n• Correção de bugs\n• Nova interface gráfica"
     },
     {
       "id": "sakura",
@@ -24,7 +24,7 @@
       "install_folder": "sakura-client",
       "main_executable": "sakura.exe",
       "icon": "https://i.postimg.cc/W1P0WhwK/sk.jpg",
-      "changelog": "• Nova interface\n• Otimizações de memória"
+      "changelog": "• Nova interface\n• Otimizações de memória\n• Suporte a múltiplas versões"
     },
     {
       "id": "lunar-crack",
@@ -37,7 +37,7 @@
       "install_folder": "lunar-crack",
       "main_executable": "lunar_crack.exe",
       "icon": "https://i.postimg.cc/XJX5GF4z/lc.jpg",
-      "changelog": "• Suporte a novos proxies\n• Correção de bugs"
+      "changelog": "• Suporte a novos proxies\n• Correção de bugs\n• Adicionado gerador de contas"
     },
     {
       "id": "elixe",
@@ -50,7 +50,7 @@
       "install_folder": "elixe-client",
       "main_executable": "elixe.exe",
       "icon": "https://i.postimg.cc/pT7FDTd0/EX.jpg",
-      "changelog": "• Adicionado suporte a mods\n• Interface redesenhada"
+      "changelog": "• Adicionado suporte a mods\n• Interface redesenhada\n• Melhorias de estabilidade"
     }
   ],
   "categories": ["Injetavel", "Version", "Ferramenta"]

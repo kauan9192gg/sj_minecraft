@@ -6,12 +6,12 @@
       "version": "1.4",
       "category": "Injetavel",
       "description": "Cliente otimizado para Minecraft com diversas funcionalidades exclusivas",
-      "download_url": "https://www.mediafire.com/file/9uf4mg6nf5a5evc/slinky/file",
+      "download_url": "https://www.mediafire.com/file/mmc2iwrjl69m62l/slinky.class/file",
       "filename": "slinky-client.zip",
       "install_folder": "slinky-client",
       "main_executable": "slinky.exe",
       "icon": "https://i.postimg.cc/d0T80r6s/sk.jpg",
-      "changelog": "• Melhorias de performance\n• Correção de bugs\n• Nova interface gráfica"
+      "changelog": "• Melhorias de performance\n• Correção de bugs\n• Correção de compatibilidade"
     },
     {
       "id": "sakura",

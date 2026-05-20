@@ -345,7 +345,9 @@
 
 <div id="toast"></div>
 
+<script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
 <script>
+    // ========== CONFIGURAÇÃO ==========
     const CONFIG = {
         owner: 'kauan9192gg',
         repo: 'sj_minecraft',
@@ -356,13 +358,57 @@
     let currentDownloadUrl = '';
     let currentFilename = '';
 
+    // ========== PONTE COM PYTHON ==========
+    window.pywebview = { api: null };
+    
+    function waitForBridge() {
+        return new Promise((resolve) => {
+            if (window.pywebview && window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
+                console.log("Bridge already available!");
+                resolve();
+            } else {
+                console.log("Waiting for bridge...");
+                window.addEventListener('pythonBridgeReady', () => {
+                    console.log("Bridge ready event received!");
+                    resolve();
+                }, { once: true });
+                // Timeout de 5 segundos caso algo dê errado
+                setTimeout(() => {
+                    console.log("Bridge timeout, continuing anyway...");
+                    resolve();
+                }, 5000);
+            }
+        });
+    }
+    
+    function initWebChannel() {
+        console.log("Initializing QWebChannel...");
+        new QWebChannel(qt.webChannelTransport, function(channel) {
+            window.pywebview.api = channel.objects.api;
+            console.log("QWebChannel initialized! API available:", !!window.pywebview.api);
+            if (window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
+                console.log("baixar_textura function is available!");
+            } else {
+                console.log("baixar_textura function NOT available!");
+            }
+            window.dispatchEvent(new CustomEvent('pythonBridgeReady'));
+        });
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWebChannel);
+    } else {
+        initWebChannel();
+    }
+
+    // ========== FUNÇÕES DO MODAL ==========
     function showDownloadModal(url, filename) {
         currentDownloadUrl = url;
         currentFilename = filename;
         document.getElementById('modalFilename').innerText = filename;
         document.getElementById('downloadModal').style.display = 'flex';
         document.querySelector('.content-wrapper').style.filter = 'blur(4px)';
-        document.querySelector('.header').style.filter = 'blur(4px)';
+        document.querySelector('.header').style.filter = 'blur(4px');
     }
 
     function closeModal() {
@@ -371,28 +417,70 @@
         document.querySelector('.header').style.filter = 'none';
     }
 
+    // ========== DOWNLOAD PARA MINECRAFT ==========
     async function downloadToMinecraft() {
+        const filename = currentFilename;
+        const url = currentDownloadUrl;
+        
+        closeModal();
+        showToast("⏬ Baixando para Minecraft...", "#a47de8");
+        
+        await waitForBridge();
+        
         try {
-            closeModal();
-            showToast("⏬ Baixando para Minecraft...", "#a47de8");
-            await window.pywebview.api.baixar_textura(currentDownloadUrl, currentFilename, "minecraft");
+            if (window.pywebview && window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
+                console.log("Calling baixar_textura with:", url, filename, "minecraft");
+                window.pywebview.api.baixar_textura(url, filename, "minecraft");
+                showToast("✅ Download iniciado! Verifique a aba Downloads", "#43b581");
+            } else {
+                console.error("Bridge not available!");
+                // Fallback: download via navegador
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                showToast("Download iniciado no navegador!", "#a47de8");
+            }
         } catch (error) {
             console.error("Erro no download:", error);
-            showToast("❌ Erro ao iniciar download: " + error, "#e74c3c");
+            showToast("❌ Erro ao iniciar download: " + error.message, "#e74c3c");
         }
     }
 
+    // ========== DOWNLOAD PERSONALIZADO ==========
     async function downloadCustom() {
+        const filename = currentFilename;
+        const url = currentDownloadUrl;
+        
+        closeModal();
+        showToast("⏬ Escolha onde salvar...", "#a47de8");
+        
+        await waitForBridge();
+        
         try {
-            closeModal();
-            showToast("⏬ Escolha onde salvar...", "#a47de8");
-            await window.pywebview.api.baixar_textura(currentDownloadUrl, currentFilename, "custom");
+            if (window.pywebview && window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
+                console.log("Calling baixar_textura with:", url, filename, "custom");
+                window.pywebview.api.baixar_textura(url, filename, "custom");
+                showToast("✅ Selecione a pasta e o download aparecerá na aba Downloads", "#43b581");
+            } else {
+                console.error("Bridge not available!");
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                showToast("Download iniciado no navegador!", "#a47de8");
+            }
         } catch (error) {
             console.error("Erro no download:", error);
-            showToast("❌ Erro ao iniciar download: " + error, "#e74c3c");
+            showToast("❌ Erro ao iniciar download: " + error.message, "#e74c3c");
         }
     }
 
+    // ========== EVENT LISTENERS ==========
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && document.getElementById('downloadModal').style.display === 'flex') {
             closeModal();
@@ -406,6 +494,7 @@
     document.getElementById('saveMinecraftBtn').addEventListener('click', downloadToMinecraft);
     document.getElementById('saveCustomBtn').addEventListener('click', downloadCustom);
 
+    // ========== TOAST NOTIFICATION ==========
     function showToast(msg, color = "#a47de8") {
         const toast = document.getElementById("toast");
         toast.innerText = msg;
@@ -417,6 +506,7 @@
         }, 3000);
     }
 
+    // ========== SANITIZAÇÃO DE NOMES ==========
     function sanitizeName(name) {
         let clean = name;
         clean = clean.replace(/\.[^/.]+$/, "");
@@ -426,6 +516,7 @@
         return clean || name;
     }
 
+    // ========== BUSCA ARQUIVOS DO GITHUB ==========
     async function fetchFiles() {
         const url = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}`;
         try {
@@ -464,6 +555,7 @@
         }
     }
 
+    // ========== ÍCONE POR EXTENSÃO ==========
     function getIcon(filename) {
         const ext = filename.split('.').pop().toLowerCase();
         if (['zip', 'rar', '7z'].includes(ext)) return '📦';
@@ -473,10 +565,12 @@
         return '📄';
     }
 
+    // ========== MANIPULADOR DE DOWNLOAD ==========
     function handleDownload(url, filename) {
         showDownloadModal(url, filename);
     }
 
+    // ========== RENDERIZAÇÃO DA GRADE ==========
     function render(files) {
         const catalog = document.getElementById('catalog');
         const count = document.getElementById('fileCount');
@@ -506,12 +600,14 @@
         });
     }
 
+    // ========== ESCAPE HTML ==========
     function escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
     }
 
+    // ========== FILTRO DE PESQUISA ==========
     function filterFiles() {
         const term = document.getElementById('searchInput').value.toLowerCase();
         const filtered = allFiles.filter(f =>
@@ -519,10 +615,13 @@
             f.name.toLowerCase().includes(term)
         );
         render(filtered);
+        const count = document.getElementById('fileCount');
+        count.innerText = `${filtered.length} TEXTURAS ENCONTRADAS`;
     }
 
     document.getElementById('searchInput').addEventListener('input', filterFiles);
 
+    // ========== INICIALIZAÇÃO ==========
     fetchFiles();
 </script>
 

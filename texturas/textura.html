@@ -189,7 +189,6 @@
 
         .btn-download:active { transform: translateY(2px); }
 
-        /* MODAL */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -256,7 +255,6 @@
 
         .btn-minecraft { background: var(--primary-dark); color: white; border: 1px solid rgba(164,125,232,0.4); }
         .btn-custom    { background: #2d3a6b; color: white; border: 1px solid rgba(100,130,255,0.3); }
-        .btn-cancel    { background: #3a1a1a; color: #ff6b6b; border: 1px solid rgba(231,76,60,0.3); }
 
         .modal-footer { margin-top: 15px; font-size: 11px; color: var(--text-muted); }
 
@@ -323,7 +321,6 @@
     <div id="catalog" class="catalog-grid"></div>
 </div>
 
-<!-- MODAL DE DOWNLOAD -->
 <div id="downloadModal" class="modal-overlay">
     <div class="modal-content">
         <span class="modal-icon">📥</span>
@@ -347,7 +344,6 @@
 
 <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
 <script>
-    // ========== CONFIGURAÇÃO ==========
     const CONFIG = {
         owner: 'kauan9192gg',
         repo: 'sj_minecraft',
@@ -358,22 +354,20 @@
     let currentDownloadUrl = '';
     let currentFilename = '';
 
-    // ========== PONTE COM PYTHON ==========
     window.pywebview = { api: null };
     
     function waitForBridge() {
-        return new Promise((resolve) => {
+        return new Promise(function(resolve) {
             if (window.pywebview && window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
                 console.log("Bridge already available!");
                 resolve();
             } else {
                 console.log("Waiting for bridge...");
-                window.addEventListener('pythonBridgeReady', () => {
+                window.addEventListener('pythonBridgeReady', function() {
                     console.log("Bridge ready event received!");
                     resolve();
                 }, { once: true });
-                // Timeout de 5 segundos caso algo dê errado
-                setTimeout(() => {
+                setTimeout(function() {
                     console.log("Bridge timeout, continuing anyway...");
                     resolve();
                 }, 5000);
@@ -386,11 +380,6 @@
         new QWebChannel(qt.webChannelTransport, function(channel) {
             window.pywebview.api = channel.objects.api;
             console.log("QWebChannel initialized! API available:", !!window.pywebview.api);
-            if (window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
-                console.log("baixar_textura function is available!");
-            } else {
-                console.log("baixar_textura function NOT available!");
-            }
             window.dispatchEvent(new CustomEvent('pythonBridgeReady'));
         });
     }
@@ -401,14 +390,13 @@
         initWebChannel();
     }
 
-    // ========== FUNÇÕES DO MODAL ==========
     function showDownloadModal(url, filename) {
         currentDownloadUrl = url;
         currentFilename = filename;
         document.getElementById('modalFilename').innerText = filename;
         document.getElementById('downloadModal').style.display = 'flex';
         document.querySelector('.content-wrapper').style.filter = 'blur(4px)';
-        document.querySelector('.header').style.filter = 'blur(4px');
+        document.querySelector('.header').style.filter = 'blur(4px)';
     }
 
     function closeModal() {
@@ -417,10 +405,9 @@
         document.querySelector('.header').style.filter = 'none';
     }
 
-    // ========== DOWNLOAD PARA MINECRAFT ==========
     async function downloadToMinecraft() {
-        const filename = currentFilename;
-        const url = currentDownloadUrl;
+        var filename = currentFilename;
+        var url = currentDownloadUrl;
         
         closeModal();
         showToast("⏬ Baixando para Minecraft...", "#a47de8");
@@ -434,8 +421,7 @@
                 showToast("✅ Download iniciado! Verifique a aba Downloads", "#43b581");
             } else {
                 console.error("Bridge not available!");
-                // Fallback: download via navegador
-                const link = document.createElement('a');
+                var link = document.createElement('a');
                 link.href = url;
                 link.download = filename;
                 document.body.appendChild(link);
@@ -449,10 +435,9 @@
         }
     }
 
-    // ========== DOWNLOAD PERSONALIZADO ==========
     async function downloadCustom() {
-        const filename = currentFilename;
-        const url = currentDownloadUrl;
+        var filename = currentFilename;
+        var url = currentDownloadUrl;
         
         closeModal();
         showToast("⏬ Escolha onde salvar...", "#a47de8");
@@ -466,7 +451,7 @@
                 showToast("✅ Selecione a pasta e o download aparecerá na aba Downloads", "#43b581");
             } else {
                 console.error("Bridge not available!");
-                const link = document.createElement('a');
+                var link = document.createElement('a');
                 link.href = url;
                 link.download = filename;
                 document.body.appendChild(link);
@@ -480,7 +465,6 @@
         }
     }
 
-    // ========== EVENT LISTENERS ==========
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && document.getElementById('downloadModal').style.display === 'flex') {
             closeModal();
@@ -494,21 +478,20 @@
     document.getElementById('saveMinecraftBtn').addEventListener('click', downloadToMinecraft);
     document.getElementById('saveCustomBtn').addEventListener('click', downloadCustom);
 
-    // ========== TOAST NOTIFICATION ==========
-    function showToast(msg, color = "#a47de8") {
-        const toast = document.getElementById("toast");
+    function showToast(msg, color) {
+        color = color || "#a47de8";
+        var toast = document.getElementById("toast");
         toast.innerText = msg;
         toast.style.backgroundColor = color;
         toast.style.color = "white";
         toast.className = "show";
-        setTimeout(() => {
+        setTimeout(function() {
             toast.className = toast.className.replace("show", "");
         }, 3000);
     }
 
-    // ========== SANITIZAÇÃO DE NOMES ==========
     function sanitizeName(name) {
-        let clean = name;
+        var clean = name;
         clean = clean.replace(/\.[^/.]+$/, "");
         clean = clean.replace(/§./g, "");
         clean = clean.replace(/^[!#_\[\]\s\-]+|[!#_\[\]\s\-]+$/g, "");
@@ -516,12 +499,11 @@
         return clean || name;
     }
 
-    // ========== BUSCA ARQUIVOS DO GITHUB ==========
     async function fetchFiles() {
-        const url = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}`;
+        var url = "https://api.github.com/repos/" + CONFIG.owner + "/" + CONFIG.repo + "/contents/" + CONFIG.path;
         try {
-            const response = await fetch(url);
-            const data = await response.json();
+            var response = await fetch(url);
+            var data = await response.json();
 
             if (!Array.isArray(data)) {
                 document.getElementById('fileCount').innerText = "Erro: Pasta não encontrada.";
@@ -530,12 +512,15 @@
                 return;
             }
 
-            allFiles = data
-                .filter(item => item.type === 'file')
-                .map(file => ({
-                    ...file,
+            allFiles = data.filter(function(item) {
+                return item.type === 'file';
+            }).map(function(file) {
+                return {
+                    download_url: file.download_url,
+                    name: file.name,
                     displayName: sanitizeName(file.name)
-                }));
+                };
+            });
 
             document.getElementById('loader').style.display = 'none';
 
@@ -544,7 +529,7 @@
             }
 
             render(allFiles);
-            showToast(`✅ ${allFiles.length} texturas carregadas!`, "#a47de8");
+            showToast("✅ " + allFiles.length + " texturas carregadas!", "#a47de8");
 
         } catch (error) {
             console.error("Erro na API:", error);
@@ -555,73 +540,82 @@
         }
     }
 
-    // ========== ÍCONE POR EXTENSÃO ==========
     function getIcon(filename) {
-        const ext = filename.split('.').pop().toLowerCase();
-        if (['zip', 'rar', '7z'].includes(ext)) return '📦';
-        if (['png', 'jpg', 'jpeg', 'gif', 'webp'].includes(ext)) return '🖼️';
+        var ext = filename.split('.').pop().toLowerCase();
+        if (ext === 'zip' || ext === 'rar' || ext === '7z') return '📦';
+        if (ext === 'png' || ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'webp') return '🖼️';
         if (ext === 'json') return '⚙️';
         if (ext === 'mcmeta') return '🎨';
         return '📄';
     }
 
-    // ========== MANIPULADOR DE DOWNLOAD ==========
     function handleDownload(url, filename) {
         showDownloadModal(url, filename);
     }
 
-    // ========== RENDERIZAÇÃO DA GRADE ==========
     function render(files) {
-        const catalog = document.getElementById('catalog');
-        const count = document.getElementById('fileCount');
+        var catalog = document.getElementById('catalog');
+        var count = document.getElementById('fileCount');
 
         catalog.innerHTML = '';
-        count.innerText = `${files.length} TEXTURAS ENCONTRADAS`;
+        count.innerText = files.length + " TEXTURAS ENCONTRADAS";
 
-        files.forEach(file => {
-            const card = document.createElement('div');
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var card = document.createElement('div');
             card.className = 'file-card';
 
-            const downloadBtn = document.createElement('button');
+            var downloadBtn = document.createElement('button');
             downloadBtn.className = 'btn-download';
             downloadBtn.innerHTML = '📥 DOWNLOAD';
-            downloadBtn.onclick = () => handleDownload(file.download_url, file.name);
+            downloadBtn.onclick = (function(url, name) {
+                return function() { handleDownload(url, name); };
+            })(file.download_url, file.name);
 
-            card.innerHTML = `
-                <div>
-                    <span class="file-icon">${getIcon(file.name)}</span>
-                    <div class="file-display-name">${escapeHtml(file.displayName)}</div>
-                    <div class="file-raw-name">${escapeHtml(file.name)}</div>
-                </div>
-            `;
+            var iconSpan = document.createElement('span');
+            iconSpan.className = 'file-icon';
+            iconSpan.innerText = getIcon(file.name);
 
+            var nameDiv = document.createElement('div');
+            nameDiv.className = 'file-display-name';
+            nameDiv.innerText = file.displayName;
+
+            var rawDiv = document.createElement('div');
+            rawDiv.className = 'file-raw-name';
+            rawDiv.innerText = file.name;
+
+            var infoDiv = document.createElement('div');
+            infoDiv.appendChild(iconSpan);
+            infoDiv.appendChild(nameDiv);
+            infoDiv.appendChild(rawDiv);
+
+            card.appendChild(infoDiv);
             card.appendChild(downloadBtn);
             catalog.appendChild(card);
-        });
+        }
     }
 
-    // ========== ESCAPE HTML ==========
     function escapeHtml(text) {
-        const div = document.createElement('div');
+        var div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
     }
 
-    // ========== FILTRO DE PESQUISA ==========
     function filterFiles() {
-        const term = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = allFiles.filter(f =>
-            f.displayName.toLowerCase().includes(term) ||
-            f.name.toLowerCase().includes(term)
-        );
+        var term = document.getElementById('searchInput').value.toLowerCase();
+        var filtered = [];
+        for (var i = 0; i < allFiles.length; i++) {
+            var f = allFiles[i];
+            if (f.displayName.toLowerCase().indexOf(term) !== -1 || f.name.toLowerCase().indexOf(term) !== -1) {
+                filtered.push(f);
+            }
+        }
         render(filtered);
-        const count = document.getElementById('fileCount');
-        count.innerText = `${filtered.length} TEXTURAS ENCONTRADAS`;
+        document.getElementById('fileCount').innerText = filtered.length + " TEXTURAS ENCONTRADAS";
     }
 
     document.getElementById('searchInput').addEventListener('input', filterFiles);
 
-    // ========== INICIALIZAÇÃO ==========
     fetchFiles();
 </script>
 

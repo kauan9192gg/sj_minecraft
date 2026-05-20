@@ -189,9 +189,15 @@
             var data = await response.json();
             if (!Array.isArray(data)) throw new Error("Invalid response");
             
-            allFiles = data.filter(function(item) { return item.type === 'file'; }).map(function(file) {
-                return { download_url: file.download_url, name: file.name, displayName: sanitizeName(file.name) };
-            });
+            // 🔥 FILTRO PRINCIPAL: Remove TODOS os arquivos .html (incluindo textura.html)
+            allFiles = data
+                .filter(function(item) { 
+                    // Só arquivos (não pastas) e que NÃO terminam com .html
+                    return item.type === 'file' && !item.name.toLowerCase().endsWith('.html');
+                })
+                .map(function(file) {
+                    return { download_url: file.download_url, name: file.name, displayName: sanitizeName(file.name) };
+                });
             
             document.getElementById('loader').style.display = 'none';
             if (allFiles.length === 0) {

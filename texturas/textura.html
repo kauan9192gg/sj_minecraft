@@ -40,53 +40,9 @@
             min-height: 100vh;
         }
 
-        #titlebar {
-            -webkit-app-region: drag;
-            height: 40px;
-            background: rgba(10, 10, 20, 0.95);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 15px;
-            border-bottom: 1px solid rgba(124, 92, 191, 0.15);
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        #titlebar span {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 12px;
-            color: var(--primary);
-            text-shadow: 0 0 12px rgba(164, 125, 232, 0.4);
-        }
-
-        .controls {
-            display: flex;
-            gap: 8px;
-            -webkit-app-region: no-drag;
-        }
-
-        .ctrl-btn {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .ctrl-btn:hover {
-            transform: scale(1.1);
-            filter: brightness(1.2);
-        }
-
-        #minimize { background: #f1c40f; }
-        #close    { background: #e74c3c; }
-
         .header {
             text-align: center;
-            padding: 20px 20px 20px;
+            padding: 30px 20px 20px;
             width: 100%;
             background: linear-gradient(to bottom, rgba(10,10,20,0.95), transparent);
             box-sizing: border-box;
@@ -238,7 +194,7 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(5, 5, 15, 0.75);
+            background: rgba(5, 5, 15, 0.85);
             backdrop-filter: blur(8px);
             display: none;
             justify-content: center;
@@ -354,16 +310,8 @@
 </head>
 <body>
 
-<div id="titlebar">
-    <span>🌌 SPACE TEXTURAS</span>
-    <div class="controls">
-        <button id="minimize" class="ctrl-btn"></button>
-        <button id="close" class="ctrl-btn"></button>
-    </div>
-</div>
-
 <div class="header">
-    <h1>Space Texturas</h1>
+    <h1>🌌 Space Texturas</h1>
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Pesquisar textura...">
         <div class="stats" id="fileCount">Lendo arquivos...</div>
@@ -379,17 +327,14 @@
 <div id="downloadModal" class="modal-overlay">
     <div class="modal-content">
         <span class="modal-icon">📥</span>
-        <h2 class="modal-title">DOWNLOAD</h2>
+        <h2 class="modal-title">ESCOLHA O DESTINO</h2>
         <div id="modalFilename" class="modal-filename"></div>
         <div class="modal-buttons">
-            <button onclick="downloadToMinecraft()" class="modal-btn btn-minecraft">
+            <button id="saveMinecraftBtn" class="modal-btn btn-minecraft">
                 📦 SALVAR EM .MINECRAFT
             </button>
-            <button onclick="downloadCustom()" class="modal-btn btn-custom">
-                📁 ESCOLHER OUTRO LOCAL
-            </button>
-            <button onclick="closeModal()" class="modal-btn btn-cancel">
-                ✖ CANCELAR
+            <button id="saveCustomBtn" class="modal-btn btn-custom">
+                📁 SALVAR EM OUTRO LUGAR
             </button>
         </div>
         <div class="modal-footer">
@@ -412,28 +357,24 @@
     let currentFilename = '';
 
     function showDownloadModal(url, filename) {
-        console.log("Abrindo modal com:", url, filename);
         currentDownloadUrl = url;
         currentFilename = filename;
         document.getElementById('modalFilename').innerText = filename;
         document.getElementById('downloadModal').style.display = 'flex';
         document.querySelector('.content-wrapper').style.filter = 'blur(4px)';
         document.querySelector('.header').style.filter = 'blur(4px)';
-        document.getElementById('titlebar').style.filter = 'blur(4px)';
     }
 
     function closeModal() {
         document.getElementById('downloadModal').style.display = 'none';
         document.querySelector('.content-wrapper').style.filter = 'none';
         document.querySelector('.header').style.filter = 'none';
-        document.getElementById('titlebar').style.filter = 'none';
-        showToast("Download cancelado", "#f1c40f");
     }
 
     async function downloadToMinecraft() {
         try {
             closeModal();
-            showToast("⏬ Preparando download para Minecraft...", "#a47de8");
+            showToast("⏬ Baixando para Minecraft...", "#a47de8");
             await window.pywebview.api.baixar_textura(currentDownloadUrl, currentFilename, "minecraft");
         } catch (error) {
             console.error("Erro no download:", error);
@@ -444,7 +385,7 @@
     async function downloadCustom() {
         try {
             closeModal();
-            showToast("⏬ Preparando download personalizado...", "#a47de8");
+            showToast("⏬ Escolha onde salvar...", "#a47de8");
             await window.pywebview.api.baixar_textura(currentDownloadUrl, currentFilename, "custom");
         } catch (error) {
             console.error("Erro no download:", error);
@@ -461,6 +402,9 @@
     document.getElementById('downloadModal').addEventListener('click', function(e) {
         if (e.target === this) closeModal();
     });
+
+    document.getElementById('saveMinecraftBtn').addEventListener('click', downloadToMinecraft);
+    document.getElementById('saveCustomBtn').addEventListener('click', downloadCustom);
 
     function showToast(msg, color = "#a47de8") {
         const toast = document.getElementById("toast");
@@ -509,7 +453,7 @@
             }
 
             render(allFiles);
-            showToast(`✅ ${allFiles.length} texturas carregadas!`);
+            showToast(`✅ ${allFiles.length} texturas carregadas!`, "#a47de8");
 
         } catch (error) {
             console.error("Erro na API:", error);
@@ -529,13 +473,8 @@
         return '📄';
     }
 
-    async function handleDownload(url, filename) {
-        try {
-            await window.pywebview.api.baixar_textura(url, filename);
-        } catch (error) {
-            console.error("Erro ao iniciar download:", error);
-            showToast("❌ Erro ao iniciar download", "#e74c3c");
-        }
+    function handleDownload(url, filename) {
+        showDownloadModal(url, filename);
     }
 
     function render(files) {
@@ -557,14 +496,20 @@
             card.innerHTML = `
                 <div>
                     <span class="file-icon">${getIcon(file.name)}</span>
-                    <div class="file-display-name">${file.displayName}</div>
-                    <div class="file-raw-name">${file.name}</div>
+                    <div class="file-display-name">${escapeHtml(file.displayName)}</div>
+                    <div class="file-raw-name">${escapeHtml(file.name)}</div>
                 </div>
             `;
 
             card.appendChild(downloadBtn);
             catalog.appendChild(card);
         });
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     function filterFiles() {
@@ -575,14 +520,6 @@
         );
         render(filtered);
     }
-
-    document.getElementById('close').addEventListener('click', async () => {
-        await window.pywebview.api.fechar();
-    });
-
-    document.getElementById('minimize').addEventListener('click', async () => {
-        await window.pywebview.api.minimizar();
-    });
 
     document.getElementById('searchInput').addEventListener('input', filterFiles);
 

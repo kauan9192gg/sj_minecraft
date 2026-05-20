@@ -6,270 +6,70 @@
     <title>Space Texturas</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #a47de8;
-            --primary-dark: #7c5cbf;
-            --accent: #c9a7ff;
-            --bg-dark: #0d0d1a;
-            --card-bg: rgba(26, 26, 50, 0.85);
-            --card-bg-hover: rgba(35, 35, 65, 0.95);
-            --border: rgba(124, 92, 191, 0.2);
-            --border-hover: rgba(164, 125, 232, 0.5);
-            --modal-bg: rgba(13, 13, 26, 0.97);
-            --text-muted: #888aaa;
-            --text-dim: #555577;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: var(--bg-dark);
-            background-image: radial-gradient(ellipse at 20% 50%, rgba(124, 92, 191, 0.06) 0%, transparent 60%);
+            background: #0d0d1a;
             color: white;
             font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
             min-height: 100vh;
         }
-
-        .header {
-            text-align: center;
-            padding: 30px 20px 20px;
-            width: 100%;
-            background: linear-gradient(to bottom, rgba(10,10,20,0.95), transparent);
-            box-sizing: border-box;
-        }
-
-        h1 {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 20px;
-            color: var(--primary);
-            text-shadow: 0 0 20px rgba(164, 125, 232, 0.35);
-            margin-bottom: 15px;
-        }
-
-        .search-container {
-            position: relative;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
+        .header { text-align: center; padding: 30px 20px 20px; background: linear-gradient(to bottom, rgba(10,10,20,0.95), transparent); }
+        h1 { font-family: 'Press Start 2P', cursive; font-size: 20px; color: #a47de8; margin-bottom: 15px; }
+        .search-container { max-width: 600px; margin: 0 auto; }
         #searchInput {
-            width: 100%;
-            padding: 15px 20px;
-            border-radius: 12px;
+            width: 100%; padding: 15px 20px; border-radius: 12px;
             border: 1.5px solid rgba(124, 92, 191, 0.25);
-            background: rgba(20, 20, 40, 0.8);
-            color: white;
-            font-size: 14px;
-            box-sizing: border-box;
+            background: rgba(20, 20, 40, 0.8); color: white; font-size: 14px;
         }
-
-        #searchInput:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(164, 125, 232, 0.18);
-        }
-
-        .stats {
-            margin-top: 12px;
-            font-size: 10px;
-            color: var(--text-muted);
-            font-family: 'Press Start 2P', cursive;
-        }
-
-        .content-wrapper {
-            flex: 1;
-            overflow-y: auto;
-            padding: 10px 20px 30px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        #searchInput:focus { outline: none; border-color: #a47de8; }
+        .stats { margin-top: 12px; font-size: 10px; color: #888aaa; font-family: 'Press Start 2P', cursive; text-align: center; }
+        .content-wrapper { padding: 20px; max-height: calc(100vh - 180px); overflow-y: auto; }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
         .file-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 20px;
-            transition: all 0.35s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background: rgba(26, 26, 50, 0.85); backdrop-filter: blur(15px);
+            border: 1px solid rgba(124, 92, 191, 0.2); border-radius: 20px;
+            padding: 20px; transition: all 0.3s;
         }
-
-        .file-card:hover {
-            transform: translateY(-5px);
-            background: var(--card-bg-hover);
-            border-color: var(--border-hover);
-            box-shadow: 0 12px 40px rgba(124, 92, 191, 0.2);
-        }
-
-        .file-icon {
-            font-size: 40px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .file-display-name {
-            font-weight: 700;
-            font-size: 18px;
-            color: #fff;
-            margin-bottom: 5px;
-            word-wrap: break-word;
-        }
-
-        .file-raw-name {
-            font-size: 10px;
-            color: var(--text-dim);
-            margin-bottom: 15px;
-            font-family: monospace;
-        }
-
+        .file-card:hover { transform: translateY(-5px); background: rgba(35, 35, 65, 0.95); border-color: rgba(164, 125, 232, 0.5); }
+        .file-icon { font-size: 40px; margin-bottom: 10px; display: block; }
+        .file-display-name { font-weight: 700; font-size: 18px; margin-bottom: 5px; }
+        .file-raw-name { font-size: 10px; color: #555577; margin-bottom: 15px; font-family: monospace; }
         .btn-download {
-            background: var(--primary-dark);
-            color: #fff;
-            text-align: center;
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            border: 1px solid rgba(164, 125, 232, 0.35);
-            cursor: pointer;
-            width: 100%;
-            font-family: 'Inter', sans-serif;
+            background: #7c5cbf; color: #fff; text-align: center; padding: 12px;
+            border-radius: 10px; font-weight: 700; text-transform: uppercase; font-size: 11px;
+            border: none; cursor: pointer; width: 100%;
         }
-
-        .btn-download:hover {
-            background: var(--primary);
-            border-color: var(--accent);
-            transform: scale(1.02);
-        }
-
+        .btn-download:hover { background: #a47de8; transform: scale(1.02); }
         .modal-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(5, 5, 15, 0.85);
-            backdrop-filter: blur(8px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5, 5, 15, 0.85); backdrop-filter: blur(8px);
+            display: none; justify-content: center; align-items: center; z-index: 10000;
         }
-
         .modal-content {
-            background: var(--modal-bg);
-            border: 1.5px solid rgba(164, 125, 232, 0.4);
-            border-radius: 24px;
-            padding: 30px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
+            background: rgba(13, 13, 26, 0.97); border: 1.5px solid rgba(164, 125, 232, 0.4);
+            border-radius: 24px; padding: 30px; max-width: 400px; width: 90%; text-align: center;
         }
-
-        .modal-title {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 16px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
+        .modal-title { font-family: 'Press Start 2P', cursive; font-size: 16px; color: #a47de8; margin-bottom: 15px; }
         .modal-filename {
-            background: rgba(164, 125, 232, 0.06);
-            padding: 15px;
-            border-radius: 12px;
-            margin: 20px 0;
-            font-size: 14px;
-            color: #fff;
-            word-break: break-all;
-            border: 1px solid var(--border);
+            background: rgba(164, 125, 232, 0.06); padding: 15px; border-radius: 12px;
+            margin: 20px 0; font-size: 14px; word-break: break-all;
+            border: 1px solid rgba(124, 92, 191, 0.2);
         }
-
-        .modal-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .modal-btn {
-            padding: 15px;
-            border-radius: 12px;
-            border: none;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-        }
-
-        .btn-minecraft { background: var(--primary-dark); color: white; }
+        .modal-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .modal-btn { padding: 15px; border-radius: 12px; border: none; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .btn-minecraft { background: #7c5cbf; color: white; }
         .btn-custom { background: #2d3a6b; color: white; }
-
-        .modal-footer {
-            margin-top: 15px;
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        #loader {
-            width: 36px;
-            height: 36px;
-            background-color: var(--primary-dark);
-            margin: 50px auto;
-            animation: cube-rotate 1.2s infinite ease-in-out;
-            border-radius: 4px;
-        }
-
-        @keyframes cube-rotate {
-            0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
-            50% { transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
-            100% { transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); }
-        }
-
+        .modal-footer { margin-top: 15px; font-size: 11px; color: #888aaa; }
+        #loader { width: 36px; height: 36px; background-color: #7c5cbf; margin: 50px auto; animation: spin 1s infinite; border-radius: 4px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         #toast {
-            visibility: hidden;
-            min-width: 200px;
-            background-color: var(--primary-dark);
-            color: white;
-            text-align: center;
-            border-radius: 10px;
-            padding: 12px 20px;
-            position: fixed;
-            left: 50%; bottom: 30px;
-            transform: translateX(-50%);
-            font-size: 13px;
-            font-weight: bold;
-            z-index: 10001;
-            opacity: 0;
-            transition: opacity 0.3s;
+            visibility: hidden; min-width: 200px; background-color: #7c5cbf; color: white;
+            text-align: center; border-radius: 10px; padding: 12px 20px;
+            position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%);
+            z-index: 10001; opacity: 0; transition: opacity 0.3s;
         }
-
         #toast.show { visibility: visible; opacity: 1; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 16px; }
-            .catalog-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 600px) { h1 { font-size: 16px; } .catalog-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -303,49 +103,24 @@
 <div id="toast"></div>
 
 <script>
-    // CONFIGURAÇÃO
-    var CONFIG = {
-        owner: 'kauan9192gg',
-        repo: 'sj_minecraft',
-        path: 'texturas'
-    };
-
+    var CONFIG = { owner: 'kauan9192gg', repo: 'sj_minecraft', path: 'texturas' };
     var allFiles = [];
     var currentDownloadUrl = '';
     var currentFilename = '';
 
-    // ========== COMUNICAÇÃO COM PYTHON ==========
-    // Usa o objeto exposto pelo Python (sem QWebChannel)
     function callPythonDownload(url, filename, saveType) {
-        console.log("Chamando Python:", url, filename, saveType);
-        
-        // Método 1: Se o Python expôs uma função global
         if (typeof window.downloadTexture === 'function') {
             window.downloadTexture(url, filename, saveType);
             return true;
         }
-        
-        // Método 2: Se o Python injetou um objeto
-        if (window.pywebview && window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
+        if (window.pywebview && window.pywebview.api && window.pywebview.api.baixar_textura) {
             window.pywebview.api.baixar_textura(url, filename, saveType);
             return true;
         }
-        
-        // Método 3: Usar URL customizada (webkit message)
-        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.downloadTexture) {
-            window.webkit.messageHandlers.downloadTexture.postMessage({
-                url: url,
-                filename: filename,
-                saveType: saveType
-            });
-            return true;
-        }
-        
-        console.error("Nenhum método de comunicação com Python disponível");
+        console.error("No bridge available");
         return false;
     }
 
-    // ========== FUNÇÕES DO MODAL ==========
     function showDownloadModal(url, filename) {
         currentDownloadUrl = url;
         currentFilename = filename;
@@ -362,124 +137,76 @@
     }
 
     function downloadToMinecraft() {
-        var filename = currentFilename;
-        var url = currentDownloadUrl;
-        
+        var filename = currentFilename, url = currentDownloadUrl;
         closeModal();
         showToast("⏬ Baixando para Minecraft...");
-        
-        var success = callPythonDownload(url, filename, "minecraft");
-        if (success) {
+        if (callPythonDownload(url, filename, "minecraft")) {
             showToast("✅ Download iniciado! Verifique a aba Downloads", "#43b581");
         } else {
-            showToast("❌ Não foi possível comunicar com o aplicativo", "#e74c3c");
-            // Fallback: abrir link no navegador
-            window.open(url, '_blank');
+            showToast("❌ Erro ao comunicar com o app", "#e74c3c");
         }
     }
 
     function downloadCustom() {
-        var filename = currentFilename;
-        var url = currentDownloadUrl;
-        
+        var filename = currentFilename, url = currentDownloadUrl;
         closeModal();
         showToast("⏬ Escolha onde salvar...");
-        
-        var success = callPythonDownload(url, filename, "custom");
-        if (success) {
+        if (callPythonDownload(url, filename, "custom")) {
             showToast("✅ Selecione a pasta na janela que irá abrir", "#43b581");
         } else {
-            showToast("❌ Não foi possível comunicar com o aplicativo", "#e74c3c");
-            window.open(url, '_blank');
+            showToast("❌ Erro ao comunicar com o app", "#e74c3c");
         }
     }
 
-    // ========== EVENTOS ==========
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && document.getElementById('downloadModal').style.display === 'flex') {
-            closeModal();
-        }
+        if (e.key === 'Escape' && document.getElementById('downloadModal').style.display === 'flex') closeModal();
     });
-
     document.getElementById('downloadModal').addEventListener('click', function(e) {
         if (e.target === this) closeModal();
     });
-
     document.getElementById('saveMinecraftBtn').addEventListener('click', downloadToMinecraft);
     document.getElementById('saveCustomBtn').addEventListener('click', downloadCustom);
 
-    // ========== TOAST ==========
     function showToast(msg, color) {
         color = color || "#a47de8";
         var toast = document.getElementById("toast");
         toast.innerText = msg;
         toast.style.backgroundColor = color;
         toast.className = "show";
-        setTimeout(function() {
-            toast.className = toast.className.replace("show", "");
-        }, 3000);
+        setTimeout(function() { toast.className = toast.className.replace("show", ""); }, 3000);
     }
 
-    // ========== SANITIZAÇÃO ==========
     function sanitizeName(name) {
-        var clean = name;
-        clean = clean.replace(/\.[^/.]+$/, "");
-        clean = clean.replace(/§./g, "");
-        clean = clean.replace(/^[!#_\[\]\s\-]+|[!#_\[\]\s\-]+$/g, "");
-        clean = clean.replace(/[\[\]\(\)]/g, " ").trim();
+        var clean = name.replace(/\.[^/.]+$/, "").replace(/§./g, "").replace(/^[!#_\[\]\s\-]+|[!#_\[\]\s\-]+$/g, "").replace(/[\[\]\(\)]/g, " ").trim();
         return clean || name;
     }
 
-    // ========== BUSCAR ARQUIVOS ==========
     async function fetchFiles() {
         var url = "https://api.github.com/repos/" + CONFIG.owner + "/" + CONFIG.repo + "/contents/" + CONFIG.path;
-        
         try {
             var response = await fetch(url);
-            
-            if (!response.ok) {
-                throw new Error("HTTP " + response.status);
-            }
-            
+            if (!response.ok) throw new Error("HTTP " + response.status);
             var data = await response.json();
-
-            if (!Array.isArray(data)) {
-                document.getElementById('fileCount').innerText = "Erro: Pasta não encontrada.";
-                document.getElementById('loader').style.display = 'none';
-                document.getElementById('catalog').innerHTML = '<div style="text-align: center; color: #e74c3c; padding: 50px;">❌ Pasta de texturas não encontrada</div>';
-                return;
-            }
-
-            allFiles = data.filter(function(item) {
-                return item.type === 'file';
-            }).map(function(file) {
-                return {
-                    download_url: file.download_url,
-                    name: file.name,
-                    displayName: sanitizeName(file.name)
-                };
+            if (!Array.isArray(data)) throw new Error("Invalid response");
+            
+            allFiles = data.filter(function(item) { return item.type === 'file'; }).map(function(file) {
+                return { download_url: file.download_url, name: file.name, displayName: sanitizeName(file.name) };
             });
-
+            
             document.getElementById('loader').style.display = 'none';
-
             if (allFiles.length === 0) {
-                document.getElementById('catalog').innerHTML = '<div style="text-align: center; color: #888aaa; padding: 50px;">📁 Nenhuma textura encontrada</div>';
+                document.getElementById('catalog').innerHTML = '<div style="text-align:center;color:#888aaa;padding:50px;">📁 Nenhuma textura encontrada</div>';
             } else {
                 render(allFiles);
             }
-            
             showToast("✅ " + allFiles.length + " texturas carregadas!");
-
         } catch (error) {
-            console.error("Erro:", error);
-            document.getElementById('fileCount').innerText = "Erro de conexão.";
             document.getElementById('loader').style.display = 'none';
-            document.getElementById('catalog').innerHTML = '<div style="text-align: center; color: #e74c3c; padding: 50px;">❌ Erro ao conectar com GitHub<br><small>' + error.message + '</small></div>';
+            document.getElementById('catalog').innerHTML = '<div style="text-align:center;color:#e74c3c;padding:50px;">❌ Erro ao conectar<br><small>' + error.message + '</small></div>';
             showToast("Erro de conexão!", "#e74c3c");
         }
     }
 
-    // ========== ÍCONES ==========
     function getIcon(filename) {
         var ext = filename.split('.').pop().toLowerCase();
         if (ext === 'zip' || ext === 'rar' || ext === '7z') return '📦';
@@ -489,50 +216,34 @@
         return '📄';
     }
 
-    // ========== RENDERIZAR ==========
     function render(files) {
         var catalog = document.getElementById('catalog');
         var count = document.getElementById('fileCount');
-
         catalog.innerHTML = '';
         count.innerText = files.length + " TEXTURAS ENCONTRADAS";
-
+        
         for (var i = 0; i < files.length; i++) {
             var file = files[i];
             var card = document.createElement('div');
             card.className = 'file-card';
-
+            
             var downloadBtn = document.createElement('button');
             downloadBtn.className = 'btn-download';
             downloadBtn.innerHTML = '📥 DOWNLOAD';
             downloadBtn.onclick = (function(url, name) {
                 return function() { showDownloadModal(url, name); };
             })(file.download_url, file.name);
-
-            var iconSpan = document.createElement('span');
-            iconSpan.className = 'file-icon';
-            iconSpan.innerText = getIcon(file.name);
-
-            var nameDiv = document.createElement('div');
-            nameDiv.className = 'file-display-name';
-            nameDiv.innerText = file.displayName;
-
-            var rawDiv = document.createElement('div');
-            rawDiv.className = 'file-raw-name';
-            rawDiv.innerText = file.name;
-
-            var infoDiv = document.createElement('div');
-            infoDiv.appendChild(iconSpan);
-            infoDiv.appendChild(nameDiv);
-            infoDiv.appendChild(rawDiv);
-
-            card.appendChild(infoDiv);
+            
+            card.innerHTML = '<div><span class="file-icon">' + getIcon(file.name) + '</span>' +
+                '<div class="file-display-name">' + escapeHtml(file.displayName) + '</div>' +
+                '<div class="file-raw-name">' + escapeHtml(file.name) + '</div></div>';
             card.appendChild(downloadBtn);
             catalog.appendChild(card);
         }
     }
 
-    // ========== FILTRO ==========
+    function escapeHtml(text) { var div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
+    
     function filterFiles() {
         var term = document.getElementById('searchInput').value.toLowerCase();
         var filtered = [];
@@ -547,10 +258,7 @@
     }
 
     document.getElementById('searchInput').addEventListener('input', filterFiles);
-
-    // INICIAR
     fetchFiles();
 </script>
-
 </body>
 </html>

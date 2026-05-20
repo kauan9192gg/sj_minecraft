@@ -30,9 +30,7 @@
 
         body {
             background: var(--bg-dark);
-            background-image:
-                radial-gradient(ellipse at 20% 50%, rgba(124, 92, 191, 0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(164, 125, 232, 0.04) 0%, transparent 50%);
+            background-image: radial-gradient(ellipse at 20% 50%, rgba(124, 92, 191, 0.06) 0%, transparent 60%);
             color: white;
             font-family: 'Inter', sans-serif;
             display: flex;
@@ -54,7 +52,6 @@
             color: var(--primary);
             text-shadow: 0 0 20px rgba(164, 125, 232, 0.35);
             margin-bottom: 15px;
-            letter-spacing: -1px;
         }
 
         .search-container {
@@ -71,12 +68,8 @@
             background: rgba(20, 20, 40, 0.8);
             color: white;
             font-size: 14px;
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
             box-sizing: border-box;
         }
-
-        #searchInput::placeholder { color: var(--text-muted); }
 
         #searchInput:focus {
             outline: none;
@@ -97,21 +90,7 @@
             padding: 10px 20px 30px;
             width: 100%;
             box-sizing: border-box;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(164, 125, 232, 0.25) transparent;
         }
-
-        .content-wrapper::-webkit-scrollbar { width: 6px; }
-        .content-wrapper::-webkit-scrollbar-track { background: transparent; }
-        .content-wrapper::-webkit-scrollbar-thumb {
-            background: rgba(164, 125, 232, 0.2);
-            border-radius: 10px;
-        }
-        .content-wrapper::-webkit-scrollbar-thumb:hover {
-            background: rgba(164, 125, 232, 0.45);
-        }
-        .content-wrapper::-webkit-scrollbar-button,
-        .content-wrapper::-webkit-scrollbar-corner { display: none; background: transparent; }
 
         .catalog-grid {
             display: grid;
@@ -127,7 +106,7 @@
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 20px;
-            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.35s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -167,7 +146,6 @@
             text-align: center;
             padding: 12px;
             border-radius: 10px;
-            text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
             font-size: 11px;
@@ -177,17 +155,13 @@
             cursor: pointer;
             width: 100%;
             font-family: 'Inter', sans-serif;
-            box-shadow: 0 0 15px rgba(124, 92, 191, 0.15);
         }
 
         .btn-download:hover {
             background: var(--primary);
             border-color: var(--accent);
-            box-shadow: 0 0 22px rgba(164, 125, 232, 0.35);
             transform: scale(1.02);
         }
-
-        .btn-download:active { transform: translateY(2px); }
 
         .modal-overlay {
             position: fixed;
@@ -199,7 +173,6 @@
             justify-content: center;
             align-items: center;
             z-index: 10000;
-            animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
@@ -210,18 +183,13 @@
             max-width: 400px;
             width: 90%;
             text-align: center;
-            animation: slideIn 0.3s ease;
-            box-shadow: 0 0 60px rgba(124, 92, 191, 0.25);
         }
-
-        .modal-icon { font-size: 60px; margin-bottom: 20px; display: block; animation: bounce 0.5s ease; }
 
         .modal-title {
             font-family: 'Press Start 2P', cursive;
             font-size: 16px;
             color: var(--primary);
             margin-bottom: 15px;
-            text-shadow: 0 0 12px rgba(164, 125, 232, 0.4);
         }
 
         .modal-filename {
@@ -235,7 +203,12 @@
             border: 1px solid var(--border);
         }
 
-        .modal-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
         .modal-btn {
             padding: 15px;
@@ -247,33 +220,29 @@
             transition: all 0.3s;
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .modal-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
-        .modal-btn:active { transform: translateY(0); }
+        .btn-minecraft { background: var(--primary-dark); color: white; }
+        .btn-custom { background: #2d3a6b; color: white; }
 
-        .btn-minecraft { background: var(--primary-dark); color: white; border: 1px solid rgba(164,125,232,0.4); }
-        .btn-custom    { background: #2d3a6b; color: white; border: 1px solid rgba(100,130,255,0.3); }
-
-        .modal-footer { margin-top: 15px; font-size: 11px; color: var(--text-muted); }
-
-        @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes bounce  { 0%,100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+        .modal-footer {
+            margin-top: 15px;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
 
         #loader {
-            width: 36px; height: 36px;
+            width: 36px;
+            height: 36px;
             background-color: var(--primary-dark);
             margin: 50px auto;
             animation: cube-rotate 1.2s infinite ease-in-out;
-            box-shadow: 0 0 20px rgba(124, 92, 191, 0.5);
             border-radius: 4px;
         }
 
         @keyframes cube-rotate {
-            0%   { transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
-            50%  { transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+            0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+            50% { transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
             100% { transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); }
         }
 
@@ -293,8 +262,6 @@
             z-index: 10001;
             opacity: 0;
             transition: opacity 0.3s;
-            border: 1px solid rgba(164, 125, 232, 0.35);
-            box-shadow: 0 4px 20px rgba(124, 92, 191, 0.3);
         }
 
         #toast.show { visibility: visible; opacity: 1; }
@@ -302,14 +269,13 @@
         @media (max-width: 600px) {
             h1 { font-size: 16px; }
             .catalog-grid { grid-template-columns: 1fr; }
-            .modal-content { width: 85%; padding: 20px; }
         }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>Pesquisar</h1>
+    <h1>📦 TEXTURAS</h1>
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Pesquisar textura...">
         <div class="stats" id="fileCount">Lendo arquivos...</div>
@@ -323,73 +289,63 @@
 
 <div id="downloadModal" class="modal-overlay">
     <div class="modal-content">
-        <span class="modal-icon">📥</span>
+        <span style="font-size: 60px;">📥</span>
         <h2 class="modal-title">ESCOLHA O DESTINO</h2>
         <div id="modalFilename" class="modal-filename"></div>
         <div class="modal-buttons">
-            <button id="saveMinecraftBtn" class="modal-btn btn-minecraft">
-                📦 SALVAR EM .MINECRAFT
-            </button>
-            <button id="saveCustomBtn" class="modal-btn btn-custom">
-                📁 SALVAR EM OUTRO LUGAR
-            </button>
+            <button id="saveMinecraftBtn" class="modal-btn btn-minecraft">📦 SALVAR EM .MINECRAFT</button>
+            <button id="saveCustomBtn" class="modal-btn btn-custom">📁 SALVAR EM OUTRO LUGAR</button>
         </div>
-        <div class="modal-footer">
-            Selecione onde deseja salvar a textura
-        </div>
+        <div class="modal-footer">Selecione onde deseja salvar a textura</div>
     </div>
 </div>
 
 <div id="toast"></div>
 
-<script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
 <script>
-    const CONFIG = {
+    // CONFIGURAÇÃO
+    var CONFIG = {
         owner: 'kauan9192gg',
         repo: 'sj_minecraft',
         path: 'texturas'
     };
 
-    let allFiles = [];
-    let currentDownloadUrl = '';
-    let currentFilename = '';
+    var allFiles = [];
+    var currentDownloadUrl = '';
+    var currentFilename = '';
 
-    window.pywebview = { api: null };
-    
-    function waitForBridge() {
-        return new Promise(function(resolve) {
-            if (window.pywebview && window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
-                console.log("Bridge already available!");
-                resolve();
-            } else {
-                console.log("Waiting for bridge...");
-                window.addEventListener('pythonBridgeReady', function() {
-                    console.log("Bridge ready event received!");
-                    resolve();
-                }, { once: true });
-                setTimeout(function() {
-                    console.log("Bridge timeout, continuing anyway...");
-                    resolve();
-                }, 5000);
-            }
-        });
-    }
-    
-    function initWebChannel() {
-        console.log("Initializing QWebChannel...");
-        new QWebChannel(qt.webChannelTransport, function(channel) {
-            window.pywebview.api = channel.objects.api;
-            console.log("QWebChannel initialized! API available:", !!window.pywebview.api);
-            window.dispatchEvent(new CustomEvent('pythonBridgeReady'));
-        });
-    }
-    
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initWebChannel);
-    } else {
-        initWebChannel();
+    // ========== COMUNICAÇÃO COM PYTHON ==========
+    // Usa o objeto exposto pelo Python (sem QWebChannel)
+    function callPythonDownload(url, filename, saveType) {
+        console.log("Chamando Python:", url, filename, saveType);
+        
+        // Método 1: Se o Python expôs uma função global
+        if (typeof window.downloadTexture === 'function') {
+            window.downloadTexture(url, filename, saveType);
+            return true;
+        }
+        
+        // Método 2: Se o Python injetou um objeto
+        if (window.pywebview && window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
+            window.pywebview.api.baixar_textura(url, filename, saveType);
+            return true;
+        }
+        
+        // Método 3: Usar URL customizada (webkit message)
+        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.downloadTexture) {
+            window.webkit.messageHandlers.downloadTexture.postMessage({
+                url: url,
+                filename: filename,
+                saveType: saveType
+            });
+            return true;
+        }
+        
+        console.error("Nenhum método de comunicação com Python disponível");
+        return false;
     }
 
+    // ========== FUNÇÕES DO MODAL ==========
     function showDownloadModal(url, filename) {
         currentDownloadUrl = url;
         currentFilename = filename;
@@ -405,66 +361,40 @@
         document.querySelector('.header').style.filter = 'none';
     }
 
-    async function downloadToMinecraft() {
+    function downloadToMinecraft() {
         var filename = currentFilename;
         var url = currentDownloadUrl;
         
         closeModal();
-        showToast("⏬ Baixando para Minecraft...", "#a47de8");
+        showToast("⏬ Baixando para Minecraft...");
         
-        await waitForBridge();
-        
-        try {
-            if (window.pywebview && window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
-                console.log("Calling baixar_textura with:", url, filename, "minecraft");
-                window.pywebview.api.baixar_textura(url, filename, "minecraft");
-                showToast("✅ Download iniciado! Verifique a aba Downloads", "#43b581");
-            } else {
-                console.error("Bridge not available!");
-                var link = document.createElement('a');
-                link.href = url;
-                link.download = filename;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                showToast("Download iniciado no navegador!", "#a47de8");
-            }
-        } catch (error) {
-            console.error("Erro no download:", error);
-            showToast("❌ Erro ao iniciar download: " + error.message, "#e74c3c");
+        var success = callPythonDownload(url, filename, "minecraft");
+        if (success) {
+            showToast("✅ Download iniciado! Verifique a aba Downloads", "#43b581");
+        } else {
+            showToast("❌ Não foi possível comunicar com o aplicativo", "#e74c3c");
+            // Fallback: abrir link no navegador
+            window.open(url, '_blank');
         }
     }
 
-    async function downloadCustom() {
+    function downloadCustom() {
         var filename = currentFilename;
         var url = currentDownloadUrl;
         
         closeModal();
-        showToast("⏬ Escolha onde salvar...", "#a47de8");
+        showToast("⏬ Escolha onde salvar...");
         
-        await waitForBridge();
-        
-        try {
-            if (window.pywebview && window.pywebview.api && typeof window.pywebview.api.baixar_textura === 'function') {
-                console.log("Calling baixar_textura with:", url, filename, "custom");
-                window.pywebview.api.baixar_textura(url, filename, "custom");
-                showToast("✅ Selecione a pasta e o download aparecerá na aba Downloads", "#43b581");
-            } else {
-                console.error("Bridge not available!");
-                var link = document.createElement('a');
-                link.href = url;
-                link.download = filename;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                showToast("Download iniciado no navegador!", "#a47de8");
-            }
-        } catch (error) {
-            console.error("Erro no download:", error);
-            showToast("❌ Erro ao iniciar download: " + error.message, "#e74c3c");
+        var success = callPythonDownload(url, filename, "custom");
+        if (success) {
+            showToast("✅ Selecione a pasta na janela que irá abrir", "#43b581");
+        } else {
+            showToast("❌ Não foi possível comunicar com o aplicativo", "#e74c3c");
+            window.open(url, '_blank');
         }
     }
 
+    // ========== EVENTOS ==========
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && document.getElementById('downloadModal').style.display === 'flex') {
             closeModal();
@@ -478,18 +408,19 @@
     document.getElementById('saveMinecraftBtn').addEventListener('click', downloadToMinecraft);
     document.getElementById('saveCustomBtn').addEventListener('click', downloadCustom);
 
+    // ========== TOAST ==========
     function showToast(msg, color) {
         color = color || "#a47de8";
         var toast = document.getElementById("toast");
         toast.innerText = msg;
         toast.style.backgroundColor = color;
-        toast.style.color = "white";
         toast.className = "show";
         setTimeout(function() {
             toast.className = toast.className.replace("show", "");
         }, 3000);
     }
 
+    // ========== SANITIZAÇÃO ==========
     function sanitizeName(name) {
         var clean = name;
         clean = clean.replace(/\.[^/.]+$/, "");
@@ -499,10 +430,17 @@
         return clean || name;
     }
 
+    // ========== BUSCAR ARQUIVOS ==========
     async function fetchFiles() {
         var url = "https://api.github.com/repos/" + CONFIG.owner + "/" + CONFIG.repo + "/contents/" + CONFIG.path;
+        
         try {
             var response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error("HTTP " + response.status);
+            }
+            
             var data = await response.json();
 
             if (!Array.isArray(data)) {
@@ -526,20 +464,22 @@
 
             if (allFiles.length === 0) {
                 document.getElementById('catalog').innerHTML = '<div style="text-align: center; color: #888aaa; padding: 50px;">📁 Nenhuma textura encontrada</div>';
+            } else {
+                render(allFiles);
             }
-
-            render(allFiles);
-            showToast("✅ " + allFiles.length + " texturas carregadas!", "#a47de8");
+            
+            showToast("✅ " + allFiles.length + " texturas carregadas!");
 
         } catch (error) {
-            console.error("Erro na API:", error);
+            console.error("Erro:", error);
             document.getElementById('fileCount').innerText = "Erro de conexão.";
             document.getElementById('loader').style.display = 'none';
-            document.getElementById('catalog').innerHTML = '<div style="text-align: center; color: #e74c3c; padding: 50px;">❌ Erro ao conectar com GitHub</div>';
+            document.getElementById('catalog').innerHTML = '<div style="text-align: center; color: #e74c3c; padding: 50px;">❌ Erro ao conectar com GitHub<br><small>' + error.message + '</small></div>';
             showToast("Erro de conexão!", "#e74c3c");
         }
     }
 
+    // ========== ÍCONES ==========
     function getIcon(filename) {
         var ext = filename.split('.').pop().toLowerCase();
         if (ext === 'zip' || ext === 'rar' || ext === '7z') return '📦';
@@ -549,10 +489,7 @@
         return '📄';
     }
 
-    function handleDownload(url, filename) {
-        showDownloadModal(url, filename);
-    }
-
+    // ========== RENDERIZAR ==========
     function render(files) {
         var catalog = document.getElementById('catalog');
         var count = document.getElementById('fileCount');
@@ -569,7 +506,7 @@
             downloadBtn.className = 'btn-download';
             downloadBtn.innerHTML = '📥 DOWNLOAD';
             downloadBtn.onclick = (function(url, name) {
-                return function() { handleDownload(url, name); };
+                return function() { showDownloadModal(url, name); };
             })(file.download_url, file.name);
 
             var iconSpan = document.createElement('span');
@@ -595,12 +532,7 @@
         }
     }
 
-    function escapeHtml(text) {
-        var div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-
+    // ========== FILTRO ==========
     function filterFiles() {
         var term = document.getElementById('searchInput').value.toLowerCase();
         var filtered = [];
@@ -616,6 +548,7 @@
 
     document.getElementById('searchInput').addEventListener('input', filterFiles);
 
+    // INICIAR
     fetchFiles();
 </script>
 

@@ -3,10 +3,10 @@
     {
       "id": "slinky",
       "name": "Slinky Client",
-      "version": "1.4",
+      "version": "1.5",
       "category": "Injetavel",
       "description": "Cliente otimizado para Minecraft com diversas funcionalidades exclusivas",
-      "download_url": "https://www.mediafire.com/file/mmc2iwrjl69m62l/slinky.class/file",
+      "download_url": "https://www.mediafire.com/file/6c7k7vofks1t6jr/slinky/file",
       "filename": "slinky-client.zip",
       "install_folder": "slinky-client",
       "main_executable": "slinky.exe",

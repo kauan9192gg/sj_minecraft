@@ -42,10 +42,10 @@
     {
       "id": "elixe",
       "name": "Elixe Client",
-      "version": "1.0",
+      "version": "1.1",
       "category": "Version",
       "description": "Cliente alternativo para Minecraft",
-      "download_url": "https://www.mediafire.com/file/xzm76k063eobmld/elixe/file",
+      "download_url": "https://www.mediafire.com/file/99ui67jt390npdn/elixe.zip/file",
       "filename": "elixe-client.zip",
       "install_folder": "elixe-client",
       "main_executable": "elixe.exe",

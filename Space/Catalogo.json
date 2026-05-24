@@ -50,7 +50,7 @@
       "install_folder": "elixe-client",
       "main_executable": "elixe.exe",
       "icon": "https://i.postimg.cc/pT7FDTd0/EX.jpg",
-      "changelog": "• Adicionado suporte a mods\n• Interface redesenhada\n• Melhorias de estabilidade"
+      "changelog": "• Adicionado laucher\n• Interface redesenhada\n• Melhorias de estabilidade"
     }
   ],
   "categories": ["Injetavel", "Version", "Ferramenta"]
